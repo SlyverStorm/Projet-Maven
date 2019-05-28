@@ -6,12 +6,32 @@ package contract;
  * @author Jean-Aymeric Diet
  */
 public interface IView {
-
+	
 	/**
-	 * Prints the message.
-	 *
-	 * @param message
-	 *          the message
+	 * Get the frame known by the View.
+	 * 
+	 * @return
 	 */
-	void printMessage(final String message);
+	IBoard getFrame();
+	
+	/**
+	 * The frame setting method.
+	 * 
+	 * @param frame
+	 */
+	void setFrame(IBoard frame);
+	
+	/**
+	 * Get the model known by the View.
+	 * 
+	 * @return
+	 */
+	IBoulderDashModel getModel();
+	
+	/**
+	 * The model setting method.
+	 * 
+	 * @param model
+	 */
+	void setModel(IBoulderDashModel model);
 }
