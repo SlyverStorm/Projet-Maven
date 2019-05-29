@@ -1,6 +1,12 @@
 package model.mobileElement;
 
 
+/**
+ * <h1>The MobileElement Class.</h1>
+ *
+ * @author Gabriel RICARD
+ * @version 0.1
+ */
 public abstract class MobileElement extends Element {
 	
 	/**

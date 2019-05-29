@@ -1,7 +1,12 @@
 package model.mobileElement;
 
 
-
+/**
+ * <h1>The Player Class.</h1>
+ *
+ * @author Gabriel RICARD
+ * @version 0.1
+ */
 public class Player extends MobileElement{
 	
 	/**
