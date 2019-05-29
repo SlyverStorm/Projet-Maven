@@ -2,8 +2,6 @@ package controller;
 
 import static org.junit.Assert.*;
 
-import java.io.IOException;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,7 +38,7 @@ public class ControllerTest {
 
 	@Test
 	public void testGetStackOrder() {
-		final String expected = "Right";
+		final UserOrder expected = UserOrder.Right;
 		assertEquals(expected, this.StackOrder);
 	}
 
