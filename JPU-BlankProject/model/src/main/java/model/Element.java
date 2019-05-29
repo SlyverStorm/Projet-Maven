@@ -35,6 +35,22 @@ public abstract class Element implements ISquare {
 	 */
 	private State state;
 	
+	
+	/**
+	 * Element constructor.
+	 * 
+	 * @param x, abscissa coordinate of the Element
+	 * @param y, ordinate coordinate of the Element
+	 * @param image, The sprite associated with the Element
+	 * @param state, The state of the Element
+	 */
+	public Element(final int x, final int y, Sprite image, State state) {
+		this.x = x;
+		this.y = y;
+		this.image = image;
+		this.state = state;
+	}
+	
 	/**
 	 * Get x value, to obtain the object position on the abscissa.
 	 * 
