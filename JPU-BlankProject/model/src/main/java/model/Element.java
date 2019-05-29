@@ -2,6 +2,12 @@ package model;
 
 import java.awt.Image;
 
+/**
+ * <h1>The DiamondBlock Class.</h1>
+ *
+ * @author Thibaut MAITREPIERRE and Gabriel RICARD
+ * @version 0.1
+ */
 public abstract class Element implements ISquare {
 	
 	/**
