@@ -23,5 +23,15 @@ public class DiamondBlock extends GravityElement {
 	 */
 	private static Sprite sprite;
 	
+	/**
+	 * The DiamondBlock constructor.
+	 * 
+	 * @param x, The sprite associated with the Element
+	 * @param y, The state of the Element
+	 */
+	public DiamondBlock(final int x, final int y) {
+		super(x,y,sprite,state);
+	}
+	
 
 }

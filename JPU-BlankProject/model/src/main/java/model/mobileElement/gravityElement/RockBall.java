@@ -23,5 +23,13 @@ public class RockBall extends GravityElement {
 	 */
 	private static Sprite sprite;
 	
-	
+	/**
+	 * The RockBall constructor.
+	 * 
+	 * @param x, The sprite associated with the Element
+	 * @param y, The state of the Element
+	 */
+	public RockBall(final int x, final int y) {
+		super(x,y,sprite,state);
+	}
 }
