@@ -13,9 +13,26 @@ public abstract class Element implements ISquare {
 	/**
 	 * Initialization
 	 */
+	
+	
+	/**
+	 * abscissa position of the Element.
+	 */
 	private int x;
+	
+	/**
+	 * ordinate position of the Element.
+	 */
 	private int y;
+	
+	/**
+	 * Element associated Sprite.
+	 */
 	private Sprite image;
+	
+	/**
+	 * Special State of the Element.
+	 */
 	private State state;
 	
 	/**
@@ -57,7 +74,7 @@ public abstract class Element implements ISquare {
 	 * 
 	 * @return An Image according to the object.
 	 */
-	public Sprite getImage() {
+	public Sprite getSprite() {
 		return image;
 	}
 	/**
@@ -65,8 +82,17 @@ public abstract class Element implements ISquare {
 	 * 
 	 * @param image Is an Image according to the object.
 	 */
-	public void setImage(Sprite image) {
+	public void setSprite(Sprite image) {
 		this.image = image;
+	}
+	
+	/**
+	 * Get the Image in the image Sprite object.
+	 * 
+	 * @return image in the Sprite object
+	 */
+	public Image getImage() {
+		return this.image.getImage();
 	}
 	
 	/**
