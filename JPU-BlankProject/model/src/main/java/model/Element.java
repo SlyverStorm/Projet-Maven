@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Element {
+import java.awt.Image;
+
+public abstract class Element implements ISquare {
 	
 	/**
 	 * Initialization
