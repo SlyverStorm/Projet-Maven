@@ -3,6 +3,7 @@ package controller;
 import contract.UserOrder;
 
 import java.io.IOException;
+import java.util.Observer;
 
 import contract.IController;
 import contract.IModel;
@@ -13,7 +14,7 @@ import contract.IView;
  *
  * @author Antoine Baudusseau
  */
-public final class Controller implements IController {
+public final class Controller implements IController{
 
 	/** The Constant speed. */
 	int speed = 300;
