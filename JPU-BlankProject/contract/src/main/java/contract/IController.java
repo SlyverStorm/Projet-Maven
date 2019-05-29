@@ -3,20 +3,13 @@ package contract;
 /**
  * The Interface IController.
  *
- * @author Jean-Aymeric Diet
+ * @author Antoine Baudusseau
  */
 public interface IController {
-
+	
 	/**
-	 * Control.
+	 * Play.
 	 */
-	public void control();
-
-	/**
-	 * Order perform.
-	 *
-	 * @param controllerOrder
-	 *          the controller order
-	 */
-	public void orderPerform(ControllerOrder controllerOrder);
+	public void play();
+	
 }
