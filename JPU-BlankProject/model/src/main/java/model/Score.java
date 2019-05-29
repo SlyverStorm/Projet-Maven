@@ -1,16 +1,37 @@
 package model;
 
+
+/**
+ * <h1>The Score element class.</h1>
+ * 
+ * @author Thibaut MAITREPIERRE AND Gabriel RICARD
+ *
+ */
 public class Score extends Element {
 
 	/**
 	 * Initialization
 	 */
-	int score = 0;
+	
+	/**
+	 * Sprite preset for Score element.
+	 */
+	private static Sprite sprite;
+	
+	/**
+	 * State preset for Score element.
+	 */
+	private static State state;
+	
+	/**
+	 * Score value is represented by an integer.
+	 */
+	private int score = 0;
 
 	/**
 	 * Get the current score value.
 	 * 
-	 * @return An int equals the score's value.
+	 * @return An integer equals the score's value.
 	 */
 	public int getScore() {
 		return score;
@@ -23,6 +44,17 @@ public class Score extends Element {
 	 */
 	public void setScore(int score) {
 		this.score = score;
+	}
+	
+	
+	/**
+	 * The Score constructor.
+	 * 
+	 * @param x, abscissa coordinate of the Score element
+	 * @param y, ordinate coordinate of the Score element
+	 */
+	public Score(final int x, final int y) {
+		super(x,y,sprite,state);
 	}
 	
 }
