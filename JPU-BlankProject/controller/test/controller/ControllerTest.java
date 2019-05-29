@@ -39,25 +39,9 @@ public class ControllerTest {
 	}
 
 	@Test
-	private UserOrder testGetStackOrder() {
+	public void testGetStackOrder() {
 		final String expected = "Right";
 		assertEquals(expected, this.StackOrder);
-		return StackOrder;
-	}
-	
-	@Test
-	private void testSetStackOrder(UserOrder StackOrder) {
-		this.StackOrder = StackOrder;
-	}
-	
-	@Test
-	private void testClearStackOrder() {
-        this.StackOrder = UserOrder.Nop;
-	}
-	
-	@Test
-	public void testOrderPerform(UserOrder UserOrder) throws IOException {
-		this.testSetStackOrder(UserOrder);
 	}
 
 }

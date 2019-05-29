@@ -31,7 +31,7 @@ public final class Controller implements IController {
 	 * Launch game process.
 	 */
 	public void play() {
-		this.getModel().loadControllerMap();
+		this.getModel().getControllerMap();
 		while (this.getModel().getPlayer().isAlive()) {
 			Thread.sleep(speed);
 			switch (this.getStackOrder()) {
@@ -53,7 +53,8 @@ public final class Controller implements IController {
 				break;
 			}
 			this.clearStackOrder();
-			this.getView().followPlayer();
+			this.getModel().getEnemy();
+			this.getModel().getGravityElement;
 		}
 		switch (this.getModel().getPlayer().isAlive()) {
 			
