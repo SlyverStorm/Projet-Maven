@@ -2,6 +2,14 @@ package model.mobileElement.enemy;
 
 public class EnemyLeftRight implements MovingEnemy {
 
+	
+	/**
+	 * The EnemyLeftRight constructor.
+	 */
+	public EnemyLeftRight() {
+		
+	}
+	
 	/**
 	 * Based on the two others methods, it will make the enemy go up or down.
 	 */

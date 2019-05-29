@@ -3,6 +3,13 @@ package model.mobileElement.enemy;
 public class EnemyUpDown implements MovingEnemy {
 
 	/**
+	 * The EnemyUpDown constructor.
+	 */
+	public EnemyUpDown() {
+		
+	}
+	
+	/**
 	 * Based on the two others methods, it will make the enemy go up or down.
 	 */
 	public void moveUpDown() {
