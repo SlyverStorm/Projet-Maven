@@ -36,31 +36,38 @@ public final class Controller implements IController {
 			Thread.sleep(speed);
 			switch (this.getStackOrder()) {
 			case Right:
-				this.getModel().getPlayer().movePlayerRight();
+				this.getModel().controllerMap[Px][Py].movePlayerRight();
 				break;
 			case Left:
-				this.getModel().getPlayer().movePlayerLeft();
+				this.getModel().controllerMap[Px][Py].movePlayerLeft();
 				break;
 			case Up:
-				this.getModel().getPlayer().movePlayerUp();
+				this.getModel().controllerMap[Px][Py].movePlayerUp();
 				break;
 			case Down:
-				this.getModel().getPlayer().movePlayerDown();
+				this.getModel().controllerMap[Px][Py].movePlayerDown();
 				break;
 			case Nop:
 			default:
-				this.getModel().getPlayer().doNothing();
+				this.getModel().controllerMap[Px][Py].doNothing();
 				break;
 			}
 			this.clearStackOrder();
-			this.getModel().getEnemy();
-			this.getModel().getGravityElement;
+			MobileElement(model);
 		}
-		switch (this.getModel().getPlayer().isAlive()) {
-			
-		}
+		
 	}
 
+	public void MobileElement(final IModel model) {
+		for (int i; i <= this.getModel().maxHeight; i++) {
+			for (int j; j <= this.getModel().maxWidth; j++) {
+				this.getModel().controllerMap[i][j].move.moveUpDown();
+				this.getModel().controllerMap[i][j].move.RightLeft();
+				this.getModel().controllerMap[i][j].gravityMove();
+			}
+		}
+	}
+	
 	/**
 	 * Instantiates a new controller.
 	 *
