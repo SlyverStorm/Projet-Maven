@@ -20,7 +20,7 @@ public class Enemy extends MobileElement {
 	/**
 	 * Move set of the enemy.
 	 */
-	private MovingEnemy move;
+	private MovingEnemy move = null;
 	
 	/**
 	 * Sprite preset of the enemy.
@@ -94,5 +94,14 @@ public class Enemy extends MobileElement {
 	public void setMove(MovingEnemy move) {
 		this.move = move;
 	}
+	
+	/**
+	 * Perform the move set of the Enemy.
+	 */
+	public void MovePerform() {
+		this.move.moveUpDown();
+		this.move.moveLeftRight();
+	}
+	
 	
 }
