@@ -9,7 +9,7 @@ import model.State;
  * @author Gabriel RICARD
  * @version 0.1
  */
-public class Player extends MobileElement{
+public class Player extends MobileElement {
 	
 	/**
 	 * Sprite preset of the player.

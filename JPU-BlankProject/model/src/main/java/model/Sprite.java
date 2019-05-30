@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -10,13 +10,13 @@ import javax.imageio.ImageIO;
 /**
  * <h1>The Sprite Class.</h1>
  *
- * @author Jade
- * @version 0.1
+ * @author Gabriel RICARD
+ * @version 0.2
  */
 public class Sprite {
 	
 	   /** The image. */
-    private Image   image;
+    private BufferedImage   image;
 
     /** The image name. */
     private String  imageName;
@@ -34,10 +34,12 @@ public class Sprite {
      *            the character
      * @param imageName
      *            the image name
+     * @throws IOException 
      */
-    public Sprite(final char character, final String imageName) {
+    public Sprite(final char character, final String imageName) throws IOException {
         this.setConsoleImage(character);
         this.setImageName(imageName);
+        this.loadImage(character);
     }
 
     /**
@@ -45,9 +47,11 @@ public class Sprite {
      *
      * @param character
      *            the character
+     * @throws IOException 
      */
-    public Sprite(final char character) {
+    public Sprite(final char character) throws IOException {
         this(character, "noimage.jpg");
+        this.loadImage(character);
     }
 
     /**
@@ -55,7 +59,7 @@ public class Sprite {
      *
      * @return the image
      */
-    public final Image getImage() {
+    public final BufferedImage getImage() {
         return this.image;
     }
 
@@ -67,6 +71,50 @@ public class Sprite {
      */
     public final void loadImage() throws IOException {
         this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+    }
+    
+    /**
+     * Load a specific image for each respective character.
+     * 
+     * @param character
+     * @throws IOException
+     */
+    public final void loadImage(final char character) throws IOException {
+    	switch (character) {
+    		case 'w' : //WallBlock
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(1,1,16,16));
+    		break;
+    		case 'd' : //DestroyableBlock
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(17,1,32,16));
+    		break;
+    		case 'e' : //EmptyBlock
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(33,1,48,16));
+    		break;
+    		case 'r' : //RockBall
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(49,1,64,16));
+    		break;
+    		case 'm' : //DiamondBlock
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(65,1,80,16));
+    		break;
+    		case 'x' : //ExitBlock
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(97,1,112,16));
+    		break;
+    		case 'o' : //Enemy
+    			this.setImage(ImageIO.read(new File("images/74359.png")));
+    			this.setImage(getImage().getSubimage(1,1,16,16));
+    		break;
+    		case 'p' : //Player
+    			this.setImage(ImageIO.read(new File("images/74336.png")));
+    			this.setImage(getImage().getSubimage(1,1,16,16));
+    		break;
+
+    	}
     }
 
     /**
@@ -84,7 +132,7 @@ public class Sprite {
      * @param image
      *            the new image
      */
-    private void setImage(final Image image) {
+    private void setImage(final BufferedImage image) {
         this.image = image;
     }
 
