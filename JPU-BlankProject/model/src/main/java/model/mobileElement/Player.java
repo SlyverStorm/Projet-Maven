@@ -1,5 +1,7 @@
 package model.mobileElement;
 
+import model.Sprite;
+import model.State;
 
 /**
  * <h1>The Player Class.</h1>
@@ -8,6 +10,16 @@ package model.mobileElement;
  * @version 0.1
  */
 public class Player extends MobileElement{
+	
+	/**
+	 * Sprite preset of the player.
+	 */
+	private static Sprite sprite;
+	
+	/**
+	 * State preset of the player.
+	 */
+	private static State state = State.PLAYER;
 	
 	/**
 	 * Verify if moving up is possible.
@@ -38,7 +50,7 @@ public class Player extends MobileElement{
 	 * Move the player Element to the lower Element
 	 */
 	public boolean movePlayerDown() {
-		
+		return false;
 	}
 	
 	/**
@@ -71,6 +83,16 @@ public class Player extends MobileElement{
 	 */
 	public void movePlayerRight() {
 		
+	}
+	
+	/**
+	 * The player element constructor.
+	 * 
+	 * @param x , abscissa coordinate of the player
+	 * @param y , ordinate coordinate of the player
+	 */
+	public Player(final int x, final int y) {
+		super(x,y,sprite,state);
 	}
 
 }
