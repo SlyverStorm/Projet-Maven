@@ -59,6 +59,12 @@ public final class Controller implements IController{
 		
 	}
 
+		
+	/**
+	 * Make the Physics works great again.
+	 *
+	 * @param model the model
+	 */
 	public void MobileElement(final IModel model) {
 		for (int i; i <= this.getModel().maxHeight; i++) {
 			for (int j; j <= this.getModel().maxWidth; j++) {
