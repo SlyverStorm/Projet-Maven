@@ -69,7 +69,7 @@ public final class Controller implements IController{
 		for (int i; i <= this.getModel().maxHeight; i++) {
 			for (int j; j <= this.getModel().maxWidth; j++) {
 				this.getModel().controllerMap[i][j].move.moveUpDown();
-				this.getModel().controllerMap[i][j].move.RightLeft();
+				this.getModel().controllerMap[i][j].move.moveRightLeft();
 				this.getModel().controllerMap[i][j].gravityMove();
 			}
 		}
