@@ -61,7 +61,7 @@ public final class Controller implements IController{
 
 		
 	/**
-	 * Make the Physics works great again.
+	 * Make the physics works great again.
 	 *
 	 * @param model the model
 	 */
