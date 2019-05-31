@@ -35,7 +35,12 @@ public class ControllerTest {
 	public void testPlay() throws InterruptedException{
 		
 	}
-
+	
+	@Test
+	public void testMobileElement() {
+		
+	}
+	
 	@Test
 	public void testGetStackOrder() {
 		final UserOrder expected = UserOrder.Right;
