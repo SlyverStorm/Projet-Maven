@@ -11,9 +11,9 @@ import org.junit.Test;
 import model.Sprite;
 import model.State;
 
-public class EmptyBlockTest {
-	EmptyBlock emptyBlock;
-	
+public class DestroyableBlockTest {
+	DestroyableBlock destroyableBlock;
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -24,7 +24,7 @@ public class EmptyBlockTest {
 
 	@Before
 	public void setUp() throws Exception {
-		emptyBlock = new EmptyBlock(1,1,null);
+		destroyableBlock = new DestroyableBlock(1,1,null);
 	}
 
 	@After
@@ -32,15 +32,15 @@ public class EmptyBlockTest {
 	}
 
 	@Test
-	public void testEmptyBlock() {
+	public void testDestroyableBlock() {
 		int expectedx = 1;
 		int expectedy = 1;
 		Sprite expectedsprite = null;
-		State expectedstate = State.EMPTY;
-		assertEquals(expectedx, emptyBlock.getX());
-		assertEquals(expectedy, emptyBlock.getY());
-		assertEquals(expectedsprite, emptyBlock.getSprite());
-		assertEquals(expectedstate, emptyBlock.getState());
+		State expectedstate = State.BREAKABLE;
+		assertEquals(expectedx, destroyableBlock.getX());
+		assertEquals(expectedy, destroyableBlock.getY());
+		assertEquals(expectedsprite, destroyableBlock.getSprite());
+		assertEquals(expectedstate, destroyableBlock.getState());
 	}
 
 }
