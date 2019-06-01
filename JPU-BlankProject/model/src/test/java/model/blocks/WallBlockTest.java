@@ -40,7 +40,7 @@ public class WallBlockTest {
 		assertEquals(expectedx, wallBlock.getX());
 		assertEquals(expectedy, wallBlock.getY());
 		assertEquals(expectedsprite, wallBlock.getSprite());
-		/*assertEquals(expectedstate, wallBlock.getState());*/
+		assertEquals(expectedstate, wallBlock.getState());
 	}
 
 }

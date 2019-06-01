@@ -16,7 +16,7 @@ public class WallBlock extends Blocks {
 	/**
 	 * The static State preset for a WallBlock element type.
 	 */
-	private static State state = State.EMPTY;
+	private static State state = State.UNBREAKABLE;
 	
 	
 	/**

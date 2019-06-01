@@ -15,7 +15,7 @@ public class ExitBlock extends Blocks {
 	/**
 	 * The static State preset for a ExitBlock element type.
 	 */
-	private static State state = State.EMPTY;
+	private static State state = State.UNBREAKABLE;
 	
 	
 	/**

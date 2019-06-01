@@ -83,7 +83,7 @@ public class ElementTest {
 	}
 
 	/*@Test
-	public <image> void testGetImage() {
+	public void testGetImage() {
 		image expectedimage = null;
 		assertEquals(expectedimage, element.getImage());
 	}*/

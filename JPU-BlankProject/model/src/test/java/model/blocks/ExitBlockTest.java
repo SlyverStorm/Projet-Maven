@@ -36,11 +36,11 @@ public class ExitBlockTest {
 		int expectedx = 1;
 		int expectedy = 1;
 		Sprite expectedsprite = null;
-		State expectedstate = State.EXIT;
+		State expectedstate = State.UNBREAKABLE;
 		assertEquals(expectedx, exitBlock.getX());
 		assertEquals(expectedy, exitBlock.getY());
 		assertEquals(expectedsprite, exitBlock.getSprite());
-		/*assertEquals(expectedstate, exitBlock.getState());*/
+		assertEquals(expectedstate, exitBlock.getState());
 	}
 
 }

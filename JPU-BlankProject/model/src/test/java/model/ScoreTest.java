@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ScoreTest {
-	ScoreTest scoreTest;
+	Score scoreTest;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -21,30 +21,30 @@ public class ScoreTest {
 
 	@Before
 	public void setUp() throws Exception {
-		scoreTest = new ScoreTest();
+		scoreTest = new Score(0, 0);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 	}
 
-	/*@Test
+	@Test
 	public void testGetScore() {
-		int expectedscore = 1;
-		assertEquals(expectedscore, scoreTest.testGetScore());
+		int expectedscore = 0;
+		assertEquals(expectedscore, scoreTest.getScore());
 	}
 
 	@Test
 	public void testSetScore() {
 		int expectedscore = 2;
-		scoreTest.testSetScore(2);
-		assertEquals(expectedscore, scoreTest.testGetScore());
+		scoreTest.setScore(2);
+		assertEquals(expectedscore, scoreTest.getScore());
 	}
 
 	@Test
 	public void testScore() {
-		int expectedscore = 1;
-		assertEquals(expectedscore, scoreTest.testGetScore());
-	}*/
+		int expectedscore = 0;
+		assertEquals(expectedscore, scoreTest.getScore());
+	}
 
 }
