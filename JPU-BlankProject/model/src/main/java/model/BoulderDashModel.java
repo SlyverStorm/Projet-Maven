@@ -175,7 +175,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 	 */
 	public BoulderDashModel(final String map) throws IOException {
 		
-		boolean isMapCheckFinished = false;
+		boolean isMapCheckFinished = true;
 		int stringPosition = 1;
 		int x = 1;
 		int y = 1;
@@ -235,9 +235,10 @@ public final class BoulderDashModel extends Observable implements IModel {
 				y++;
 				break;
 			case('f') :
-				isMapCheckFinished = true;
+				isMapCheckFinished = false;
 				break;
 			}
+			stringPosition++;
 		}
 	}
 

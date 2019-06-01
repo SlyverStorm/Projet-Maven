@@ -8,7 +8,7 @@ import model.*;
  * @author Thibaut MAITREPIERRE AND Gabriel RICARD
  *
  */
-public class Blocks extends Element {
+public abstract class Blocks extends Element {
 
 	/**
 	 * Is used as a link between several types of Blocks, and Element.
