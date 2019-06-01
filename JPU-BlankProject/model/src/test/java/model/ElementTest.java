@@ -36,11 +36,11 @@ public class ElementTest {
 		int expectedx = 1;
 		int expectedy = 1;
 		Sprite expectedsprite = null;
-		State expectedstate = null;
+		State expectedstate = State.EMPTY;
 		assertEquals(expectedx, element.getX());
 		assertEquals(expectedy, element.getY());
 		assertEquals(expectedsprite, element.getSprite());
-		/*assertEquals(expectedstate, element.getState());*/
+		assertEquals(expectedstate, element.getState());
 	}
 
 	@Test
@@ -88,16 +88,16 @@ public class ElementTest {
 		assertEquals(expectedimage, element.getImage());
 	}*/
 
-	/*@Test
+	@Test
 	public void testGetState() {
-		State expectedstate = null;
+		State expectedstate = State.EMPTY;
 		assertEquals(expectedstate, element.getState());
-	}*/
+	}
 
 	@Test
 	public void testSetState() {
-		State expectedstate = null;
-		element.setState(null);
+		State expectedstate = State.EMPTY;
+		element.setState(State.EMPTY);
 		assertEquals(expectedstate, element.getState());
 	}
 
