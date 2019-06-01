@@ -58,7 +58,6 @@ public final class Controller implements IController{
 		}
 		
 	}
-
 		
 	/**
 	 * Make the physics works great again.

@@ -25,9 +25,6 @@ public class ControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		this.StackOrder = UserOrder.Right;
-		
-		
-		
 	}
 
 	@After
