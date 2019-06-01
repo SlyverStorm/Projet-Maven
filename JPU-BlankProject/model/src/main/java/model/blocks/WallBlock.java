@@ -12,16 +12,7 @@ import model.State;
  */
 public class WallBlock extends Blocks {
 
-	/**
-	 * Sprite is used to get a specific sprite for WallBlock.
-	 * State is used to attribute a state to WallBlock.
-	 */
-	
-	/**
-	 * The static Sprite preset for a WallBlock element type.
-	 */
-	private static Sprite sprite;
-	
+
 	/**
 	 * The static State preset for a WallBlock element type.
 	 */
@@ -31,10 +22,11 @@ public class WallBlock extends Blocks {
 	/**
 	 * The WallBlock constructor.
 	 * 
-	 * @param x, abscissa coordinate of the Element
-	 * @param y, ordinate coordinate of the Element
+	 * @param x , abscissa coordinate of the Element
+	 * @param y , ordinate coordinate of the Element
+	 * @param sprite , the WallBlock associated sprite
 	 */
-	public WallBlock(final int x, final int y) {
+	public WallBlock(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
 	}
 }

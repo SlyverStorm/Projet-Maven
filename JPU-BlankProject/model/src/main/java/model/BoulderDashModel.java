@@ -1,11 +1,24 @@
 package model;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
 import entity.HelloWorld;
+import model.Sprite;
+import model.blocks.DestroyableBlock;
+import model.blocks.EmptyBlock;
+import model.blocks.ExitBlock;
+import model.blocks.WallBlock;
+import model.mobileElement.Player;
+import model.mobileElement.enemy.Enemy;
+import model.mobileElement.enemy.EnemyLeftRight;
+import model.mobileElement.enemy.EnemyUpDown;
+import model.mobileElement.gravityElement.DiamondBlock;
+import model.mobileElement.gravityElement.RockBall;
+
 
 /**
  * The BoulderDash game Model class.
@@ -158,9 +171,74 @@ public final class BoulderDashModel extends Observable implements IModel {
 	 * Our model constructor.
 	 * 
 	 * @param map , our map String to translate in an Element[][]
+	 * @throws IOException 
 	 */
-	public BoulderDashModel(final String map) {
+	public BoulderDashModel(final String map) throws IOException {
 		
+		boolean isMapCheckFinished = false;
+		int stringPosition = 1;
+		int x = 1;
+		int y = 1;
+		
+		while(isMapCheckFinished) {
+			
+			Sprite wallBlockSprite = new Sprite('w',"WallBlockImage");
+			Sprite destroyableBlockSprite = new Sprite('d',"DestroyableBlockImage");
+			Sprite emptyBlockSprite = new Sprite('e',"EmptyBlockImage");
+			Sprite rockBallSprite = new Sprite('r',"RockBallImage");
+			Sprite diamondBlockSprite = new Sprite('m',"DiamondBlockImage");
+			Sprite exitBlockSprite = new Sprite('x',"ExitBlockImage");
+			Sprite enemySprite = new Sprite('o',"EnemyImage");
+			Sprite playerSprite = new Sprite('p',"PlayerImage");
+			
+			
+			switch(map.charAt(stringPosition)) {
+			case ('w') :
+				this.controllerMap[x][y] = new WallBlock(x,y,wallBlockSprite);
+				x++;
+				break;
+			case('d') :
+				this.controllerMap[x][y] = new DestroyableBlock(x,y,destroyableBlockSprite);
+				x++;
+				break;
+			case('e') :
+				this.controllerMap[x][y] = new EmptyBlock(x,y,emptyBlockSprite);
+				x++;
+				break;
+			case('r') :
+				this.controllerMap[x][y] = new RockBall(x,y,rockBallSprite);
+				x++;
+				break;
+			case('m') :
+				this.controllerMap[x][y] = new DiamondBlock(x,y,diamondBlockSprite);
+				x++;
+				break;
+			case('x') :
+				this.controllerMap[x][y] = new ExitBlock(x,y,exitBlockSprite);
+				x++;
+				break;
+			case('1') :
+				EnemyUpDown moveUD = new EnemyUpDown();
+				this.controllerMap[x][y] = new Enemy(x,y,enemySprite,moveUD);
+				x++;
+				break;
+			case('2') :
+				EnemyLeftRight moveLR = new EnemyLeftRight();
+				this.controllerMap[x][y] = new Enemy(x,y,enemySprite,moveLR);
+				x++;
+			case('p') :
+				this.controllerMap[x][y] = new Player(x,y,playerSprite);
+				x++;
+				break;
+			case(' ') :
+				x = 1;
+				y++;
+				break;
+			case('f') :
+				isMapCheckFinished = true;
+				break;
+			}
+		}
 	}
 
 	

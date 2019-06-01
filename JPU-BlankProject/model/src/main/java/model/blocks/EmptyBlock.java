@@ -12,16 +12,7 @@ import model.State;
  */
 public class EmptyBlock extends Blocks {
 
-	/**
-	 * Sprite is used to get a specific sprite for EmptyBlock.
-	 * State is used to attribute a state to the EmptyBlock.
-	 */
-	
-	/**
-	 * The static Sprite preset for a EmptyBlock element type.
-	 */
-	private static Sprite sprite;
-	
+
 	/**
 	 * The static State preset for a EmptyBlock element type.
 	 */
@@ -33,8 +24,9 @@ public class EmptyBlock extends Blocks {
 	 * 
 	 * @param x, abscissa coordinate of the Element
 	 * @param y, ordinate coordinate of the Element
+	 * @param sprite , the EmptyBlock associated sprite
 	 */
-	public EmptyBlock(final int x, final int y) {
+	public EmptyBlock(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
 	}
 }

@@ -18,18 +18,15 @@ public class DiamondBlock extends GravityElement {
 	 */
 	private static State state = State.LOOTABLE;
 	
-	/**
-	 * The Sprite preset for a DiamondBlock Element.
-	 */
-	private static Sprite sprite;
-	
+
 	/**
 	 * The DiamondBlock constructor.
 	 * 
 	 * @param x, The sprite associated with the Element
 	 * @param y, The state of the Element
+	 * @param sprite , the DiamondBlock associated sprite
 	 */
-	public DiamondBlock(final int x, final int y) {
+	public DiamondBlock(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
 	}
 	

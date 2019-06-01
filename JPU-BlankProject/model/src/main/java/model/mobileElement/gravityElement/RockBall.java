@@ -1,5 +1,7 @@
 package model.mobileElement.gravityElement;
 
+import java.io.IOException;
+
 import model.Sprite;
 import model.State;
 
@@ -18,18 +20,19 @@ public class RockBall extends GravityElement {
 	 */
 	private static State state = State.UNBREAKABLE;
 	
-	/**
-	 * The Sprite preset for a Rockball Element.
-	 */
-	private static Sprite sprite;
-	
+
+
 	/**
 	 * The RockBall constructor.
 	 * 
 	 * @param x, The sprite associated with the Element
 	 * @param y, The state of the Element
+	 * @param sprite , The RockBall associated Sprite
+	 * @throws IOException
 	 */
-	public RockBall(final int x, final int y) {
+	public RockBall(final int x, final int y, Sprite sprite) throws IOException {
+		
 		super(x,y,sprite,state);
+		
 	}
 }

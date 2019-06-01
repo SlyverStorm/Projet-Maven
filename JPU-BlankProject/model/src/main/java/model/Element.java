@@ -30,6 +30,8 @@ public abstract class Element implements ISquare {
 	 */
 	private Sprite image;
 	
+	
+	
 	/**
 	 * Special State of the Element.
 	 */

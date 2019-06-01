@@ -11,11 +11,7 @@ import model.State;
  */
 public class Player extends MobileElement {
 	
-	/**
-	 * Sprite preset of the player.
-	 */
-	private static Sprite sprite;
-	
+
 	/**
 	 * State preset of the player.
 	 */
@@ -90,8 +86,9 @@ public class Player extends MobileElement {
 	 * 
 	 * @param x , abscissa coordinate of the player
 	 * @param y , ordinate coordinate of the player
+	 * @param sprite , the Player associated sprite
 	 */
-	public Player(final int x, final int y) {
+	public Player(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
 	}
 

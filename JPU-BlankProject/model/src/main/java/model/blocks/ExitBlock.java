@@ -11,16 +11,6 @@ import model.State;
  *
  */
 public class ExitBlock extends Blocks {
-
-	/**
-	 * Sprite is used to get a specific sprite for ExitBlock.
-	 * State is used to attribute a state to ExitBlock.
-	 */
-	
-	/**
-	 * The static Sprite preset for a ExitBlock element type.
-	 */
-	private static Sprite sprite;
 	
 	/**
 	 * The static State preset for a ExitBlock element type.
@@ -33,8 +23,9 @@ public class ExitBlock extends Blocks {
 	 * 
 	 * @param x, abscissa coordinate of the Element
 	 * @param y, ordinate coordinate of the Element
+	 * @param sprite , the ExitBlock associated sprite
 	 */
-	public ExitBlock(final int x, final int y) {
+	public ExitBlock(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
 	}
 }

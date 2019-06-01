@@ -23,11 +23,6 @@ public class Enemy extends MobileElement {
 	private MovingEnemy move = null;
 	
 	/**
-	 * Sprite preset of the enemy.
-	 */
-	private static Sprite sprite;
-	
-	/**
 	 * State preset of the enemy.
 	 */
 	private static State state = State.ENEMY;
@@ -41,7 +36,7 @@ public class Enemy extends MobileElement {
 	 * @param y, ordinate coordinate of the Enemy
 	 * @param move, the move set of the Enemy
 	 */
-	public Enemy(final int x, final int y, EnemyUpDown move) {
+	public Enemy(final int x, final int y, Sprite sprite, EnemyUpDown move) {
 		super(x,y,sprite,state);
 		this.move = move;
 	}
@@ -54,7 +49,7 @@ public class Enemy extends MobileElement {
 	 * @param y, ordinate coordinate of the Enemy
 	 * @param move, the move set of the Enemy
 	 */
-	public Enemy(final int x, final int y, EnemyLeftRight move) {
+	public Enemy(final int x, final int y, Sprite sprite, EnemyLeftRight move) {
 		super(x,y,sprite,state);
 		this.move = move;
 	}
