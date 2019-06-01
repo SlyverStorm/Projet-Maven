@@ -81,35 +81,35 @@ public class Sprite {
      */
     public final void loadImage(final char character) throws IOException {
     	switch (character) {
-    		case 'w' : //WallBlock
+    		case '/' : //WallBlock
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(1,1,16,16));
     		break;
-    		case 'd' : //DestroyableBlock
+    		case '@' : //DestroyableBlock
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(17,1,32,16));
     		break;
-    		case 'e' : //EmptyBlock
+    		case '-' : //EmptyBlock
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(33,1,48,16));
     		break;
-    		case 'r' : //RockBall
+    		case 'o' : //RockBall
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(49,1,64,16));
     		break;
-    		case 'm' : //DiamondBlock
+    		case 'D' : //DiamondBlock
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(65,1,80,16));
     		break;
-    		case 'x' : //ExitBlock
+    		case 'X' : //ExitBlock
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(97,1,112,16));
     		break;
-    		case 'o' : //Enemy
+    		case '#' : //Enemy
     			this.setImage(ImageIO.read(new File("images/74359.png")));
     			this.setImage(getImage().getSubimage(1,1,16,16));
     		break;
-    		case 'p' : //Player
+    		case 'P' : //Player
     			this.setImage(ImageIO.read(new File("images/74336.png")));
     			this.setImage(getImage().getSubimage(1,1,16,16));
     		break;

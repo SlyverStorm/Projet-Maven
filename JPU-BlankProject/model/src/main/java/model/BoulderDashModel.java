@@ -182,38 +182,38 @@ public final class BoulderDashModel extends Observable implements IModel {
 		
 		while(isMapCheckFinished) {
 			
-			Sprite wallBlockSprite = new Sprite('w',"WallBlockImage");
-			Sprite destroyableBlockSprite = new Sprite('d',"DestroyableBlockImage");
-			Sprite emptyBlockSprite = new Sprite('e',"EmptyBlockImage");
-			Sprite rockBallSprite = new Sprite('r',"RockBallImage");
-			Sprite diamondBlockSprite = new Sprite('m',"DiamondBlockImage");
-			Sprite exitBlockSprite = new Sprite('x',"ExitBlockImage");
-			Sprite enemySprite = new Sprite('o',"EnemyImage");
-			Sprite playerSprite = new Sprite('p',"PlayerImage");
+			Sprite wallBlockSprite = new Sprite('/',"WallBlockImage");
+			Sprite destroyableBlockSprite = new Sprite('@',"DestroyableBlockImage");
+			Sprite emptyBlockSprite = new Sprite('-',"EmptyBlockImage");
+			Sprite rockBallSprite = new Sprite('o',"RockBallImage");
+			Sprite diamondBlockSprite = new Sprite('D',"DiamondBlockImage");
+			Sprite exitBlockSprite = new Sprite('X',"ExitBlockImage");
+			Sprite enemySprite = new Sprite('#',"EnemyImage");
+			Sprite playerSprite = new Sprite('P',"PlayerImage");
 			
 			
 			switch(map.charAt(stringPosition)) {
-			case ('w') :
+			case ('/') :
 				this.controllerMap[x][y] = new WallBlock(x,y,wallBlockSprite);
 				x++;
 				break;
-			case('d') :
+			case('@') :
 				this.controllerMap[x][y] = new DestroyableBlock(x,y,destroyableBlockSprite);
 				x++;
 				break;
-			case('e') :
+			case('-') :
 				this.controllerMap[x][y] = new EmptyBlock(x,y,emptyBlockSprite);
 				x++;
 				break;
-			case('r') :
+			case('o') :
 				this.controllerMap[x][y] = new RockBall(x,y,rockBallSprite);
 				x++;
 				break;
-			case('m') :
+			case('D') :
 				this.controllerMap[x][y] = new DiamondBlock(x,y,diamondBlockSprite);
 				x++;
 				break;
-			case('x') :
+			case('X') :
 				this.controllerMap[x][y] = new ExitBlock(x,y,exitBlockSprite);
 				x++;
 				break;
@@ -226,7 +226,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 				EnemyLeftRight moveLR = new EnemyLeftRight();
 				this.controllerMap[x][y] = new Enemy(x,y,enemySprite,moveLR);
 				x++;
-			case('p') :
+			case('P') :
 				this.controllerMap[x][y] = new Player(x,y,playerSprite);
 				x++;
 				break;
