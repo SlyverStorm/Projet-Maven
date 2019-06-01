@@ -27,7 +27,7 @@ public class ControllerTest {
 		this.StackOrder = UserOrder.Right;
 		
 		
-
+		
 	}
 
 	@After
