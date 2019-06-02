@@ -42,6 +42,21 @@ public class ControllerTest {
 	}
 	
 	@Test
+	public void testCountI() {
+		
+	}
+	
+	@Test
+	public void testCounJ() {
+		
+	}
+	
+	@Test
+	public void testScoreIncrease() {
+		
+	}
+	
+	@Test
 	public void testGetStackOrder() {
 		final UserOrder expected = UserOrder.Right;
 		assertEquals(expected, this.StackOrder);

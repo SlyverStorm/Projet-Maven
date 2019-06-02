@@ -14,7 +14,7 @@ import contract.IView;
  *
  * @author Antoine Baudusseau
  */
-public final class Controller implements IController{
+public final class Controller implements IController {
 
 	/** The Constant speed. */
 	int speed = 300;
