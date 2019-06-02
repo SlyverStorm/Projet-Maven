@@ -26,7 +26,7 @@ public final class Controller implements IController{
 	int NbrDiamondI = 0;
 	
 	/** The current number of diamonds on the map. */
-	int NbrDiamondJ = 0;
+	int NbrDiamondC = 0;
 	
 	/** The view. */
 	private IView view;
@@ -107,9 +107,9 @@ public final class Controller implements IController{
 	 * @param model the model
 	 */
 	public void CountJ(final IModel model) {
-		NbrDiamondJ = 0;
+		NbrDiamondC = 0;
 		if (model.controllerMap[i][j].state.lootable) {
-			NbrDiamondJ ++;
+			NbrDiamondC ++;
 		}
 	}
 	
@@ -119,7 +119,7 @@ public final class Controller implements IController{
 	 * @param model the model
 	 */
 	public void ScoreIncrease() {
-		score = NbrDiamondI - NbrDiamondJ;
+		score = NbrDiamondI - NbrDiamondC;
 	}
 	
 	/**
