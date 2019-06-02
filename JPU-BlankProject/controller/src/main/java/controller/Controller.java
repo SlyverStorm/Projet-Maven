@@ -19,6 +19,15 @@ public final class Controller implements IController{
 	/** The Constant speed. */
 	int speed = 300;
 	
+	/** The score of the player. */
+	int score = 0;
+	
+	/** The number of diamonds on the map at the beginning of the game. */
+	int NbrDiamondI = 0;
+	
+	/** The current number of diamonds on the map. */
+	int NbrDiamondJ = 0;
+	
 	/** The view. */
 	private IView view;
 	
@@ -33,6 +42,7 @@ public final class Controller implements IController{
 	 */
 	public void play() {
 		this.getModel().getControllerMap();
+		this.CountI(model);
 		while (this.getModel().getPlayer().isAlive()) {
 			Thread.sleep(speed);
 			switch (this.getStackOrder()) {
@@ -70,8 +80,46 @@ public final class Controller implements IController{
 				this.getModel().controllerMap[i][j].move.moveUpDown();
 				this.getModel().controllerMap[i][j].move.moveRightLeft();
 				this.getModel().controllerMap[i][j].gravityMove();
+				this.CountJ(model);
+				this.ScoreIncrease();
 			}
 		}
+	}
+	
+	/**
+	 * Count the number of diamonds on the map at the beginning of the game.
+	 *
+	 * @param model the model
+	 */
+	public void CountI(final IModel model) {
+		for (int i; i <= this.getModel().maxHeight; i++) {
+			for (int j; j <= this.getModel().maxWidth; j++) {
+				if (model.controllerMap[i][j].state.lootable) {
+					NbrDiamondI ++;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Count the current number of diamonds on the map.
+	 *
+	 * @param model the model
+	 */
+	public void CountJ(final IModel model) {
+		NbrDiamondJ = 0;
+		if (model.controllerMap[i][j].state.lootable) {
+			NbrDiamondJ ++;
+		}
+	}
+	
+	/**
+	 * Calculation of the player's score.
+	 *
+	 * @param model the model
+	 */
+	public void ScoreIncrease() {
+		score = NbrDiamondI - NbrDiamondJ;
 	}
 	
 	/**
