@@ -20,9 +20,15 @@ public class ControllerTest {
 	
 	int NbrDiamondC = 0;
 	
-	private IView view;
+	int maxHeight = 0;
 	
-	private IModel model;
+	int maxWidth = 0;
+	
+	int i = 0;
+	
+	int j = 0;
+	
+	String map = "aaaaag";
 	
 	private UserOrder StackOrder;
 	
@@ -37,6 +43,10 @@ public class ControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		this.StackOrder = UserOrder.Right;
+		NbrDiamondI = 5;
+		NbrDiamondC = 3;
+		maxHeight = 5;
+		maxWidth = 6;
 	}
 
 	@After
@@ -50,21 +60,44 @@ public class ControllerTest {
 	
 	@Test
 	public void testMobileElement() {
-		
+		for (i = 0; i <= maxHeight; i++) {
+			for (j = 0; j <= maxWidth; j++) {
+				this.testCountC();
+				this.testScoreIncrease();
+			}
+		}
 	}
 	
 	@Test
 	public void testCountI() {
-		
+		 NbrDiamondI = 0;
+		 char searchLet = map.charAt(0);
+		 for (int i=0; i < map.length(); i++)
+		 {
+			 char ch = map.charAt(i);
+			 if (searchLet == ch) {
+			 NbrDiamondI++;
+			 }
+		 }
 	}
 	
 	@Test
 	public void testCountC() {
+		 NbrDiamondC = 0;
+		 char searchLet = map.charAt(0);
+		 for (int i=0; i < map.length(); i++)
+		 {
+			 char ch = map.charAt(i);
+			 if (searchLet == ch) {
+			 NbrDiamondC++;
+			 }
+		 }
 	}
 	
 	@Test
 	public void testScoreIncrease() {
-		assertEquals(2,NbrDiamondI-NbrDiamondC);
+		int expected = 2;
+		assertEquals(expected,NbrDiamondI-NbrDiamondC);
 	}
 	
 	@Test

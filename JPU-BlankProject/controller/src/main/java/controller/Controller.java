@@ -80,8 +80,8 @@ public final class Controller implements IController {
 				this.getModel().controllerMap[i][j].move.moveUpDown();
 				this.getModel().controllerMap[i][j].move.moveRightLeft();
 				this.getModel().controllerMap[i][j].gravityMove();
-				this.CountJ(model);
-				this.ScoreIncrease();
+				this.CountC(model);
+				this.ScoreIncrease(NbrDiamondI, NbrDiamondC);
 			}
 		}
 	}
