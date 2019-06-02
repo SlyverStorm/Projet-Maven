@@ -8,9 +8,21 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import contract.IModel;
+import contract.IView;
 import contract.UserOrder;
 
 public class ControllerTest {
+	
+	int score = 0;
+	
+	int NbrDiamondI = 0;
+	
+	int NbrDiamondC = 0;
+	
+	private IView view;
+	
+	private IModel model;
 	
 	private UserOrder StackOrder;
 	
@@ -47,13 +59,12 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public void testCounJ() {
-		
+	public void testCountC() {
 	}
 	
 	@Test
 	public void testScoreIncrease() {
-		
+		assertEquals(2,NbrDiamondI-NbrDiamondC);
 	}
 	
 	@Test

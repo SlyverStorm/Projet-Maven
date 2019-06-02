@@ -106,7 +106,7 @@ public final class Controller implements IController {
 	 *
 	 * @param model the model
 	 */
-	public void CountJ(final IModel model) {
+	public void CountC(final IModel model) {
 		NbrDiamondC = 0;
 		if (model.controllerMap[i][j].state.lootable) {
 			NbrDiamondC ++;
@@ -118,7 +118,7 @@ public final class Controller implements IController {
 	 *
 	 * @param model the model
 	 */
-	public void ScoreIncrease() {
+	public void ScoreIncrease(int NbrDiamondI, int NbrDiamondC) {
 		score = NbrDiamondI - NbrDiamondC;
 	}
 	
