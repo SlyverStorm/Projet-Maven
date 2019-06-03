@@ -212,6 +212,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 	
 	/**
 	 * It will swap a sprite with specific coordinates, to the right (x+1).
+	 * impossible to test.
 	 * @param x
 	 * @param y
 	 * @throws IOException
@@ -225,6 +226,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 	
 	/**
 	 * It will swap a sprite with specific coordinates, to the left (x-1).
+	 * impossible to test.
 	 * @param x
 	 * @param y
 	 * @throws IOException
@@ -238,6 +240,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 	
 	/**
 	 * It will swap a sprite with specific coordinates up side (y+1).
+	 * impossible to test.
 	 * @param x
 	 * @param y
 	 * @throws IOException
@@ -251,6 +254,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 	
 	/**
 	 * It will swap a sprite with specific coordinates down side (y-1).
+	 * impossible to test.
 	 * @param x
 	 * @param y
 	 * @throws IOException
