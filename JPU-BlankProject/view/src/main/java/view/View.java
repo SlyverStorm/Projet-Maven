@@ -1,82 +1,152 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
+import contract.ControllerOrder1;
+import contract.IController1;
+import contract.IBoulderDashModel1;
 import contract.IView;
+import contract.ControllerOrder1;
 
 /**
- * The Class View.
+ * The View Class, interface between the user and the program.
  *
- * @author Jean-Aymeric Diet
+ * @author Gabriel RICARD
  */
-public final class View implements IView, Runnable {
+public final class View implements IView, KeyListener {
 
 	/** The frame. */
-	private final ViewFrame viewFrame;
+	private IBoard frame;
+	
+	/** The model known by the View */
+	private IBoulderDashModel1 model;
+	
+	/**
+	 * KeyPressed UserOrder
+	 */
+	private ControllerOrder1 keyPressed = null;
 
 	/**
-	 * Instantiates a new view.
-	 *
-	 * @param model
-	 *          the model
+	 * get the frame in the View
+	 * 
+	 * @return the view frame
 	 */
-	public View(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
-		SwingUtilities.invokeLater(this);
+	public IBoard getFrame() {
+		return frame;
+	}
+	
+	/**
+	 * Set a frame to the View
+	 * 
+	 * @param frame , frame to set
+	 * 
+	 */
+	public void setFrame(IBoard frame) {
+		this.frame = frame;
+	}
+	
+	
+	/**
+	 * Model known by the View
+	 * 
+	 * @return the model
+	 */
+	public IBoulderDashModel1 getModel() {
+		return model;
+	}
+	
+	/**
+	 * Set the model in the View
+	 * 
+	 * @param model , model to set
+	 */
+	public void setModel(IBoulderDashModel1 model) {
+		this.model = model;
+	}
+	
+	
+	/**
+	 * get the Key order
+	 * 
+	 * @return key pressed
+	 */
+	public ControllerOrder1 getKeyPressed() {
+		return keyPressed;
+	}
+
+	
+	/**
+	 * set a keyPressed
+	 * 
+	 * @param keyPressed
+	 */
+	public void setKeyPressed(ControllerOrder1 keyPressed) {
+		this.keyPressed = keyPressed;
+	}
+	
+	
+	/**
+	 * KeyListener when a key is pressed
+	 * 
+	 * @param e , KeyEvent 
+	 */
+	public void keyPressed(KeyEvent e) {
+
+	    int key = e.getKeyCode();
+
+	    if (key == KeyEvent.VK_LEFT) {
+	        setKeyPressed(ControllerOrder1.LEFT);
+	    }
+
+	    if (key == KeyEvent.VK_RIGHT) {
+	        setKeyPressed(ControllerOrder1.RIGHT);
+	    }
+
+	    if (key == KeyEvent.VK_UP) {
+	        setKeyPressed(ControllerOrder1.UP);
+	    }
+
+	    if (key == KeyEvent.VK_DOWN) {
+	        setKeyPressed(ControllerOrder1.DOWN);
+	    }
+	    	
 	}
 
 	/**
-	 * Key code to controller order.
-	 *
-	 * @param keyCode
-	 *          the key code
-	 * @return the controller order
+	 * KeyListener when a key is release
+	 * 
+	 * @param e , KeyEvent
 	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
-			default:
-				return ControllerOrder.English;
-		}
+	public void keyReleased(KeyEvent e) {
+		int key = e.getKeyCode();
+
+	    if (key == KeyEvent.VK_LEFT) {
+	        setKeyPressed(null);
+	    }
+
+	    if (key == KeyEvent.VK_RIGHT) {
+	        setKeyPressed(null);
+	    }
+
+	    if (key == KeyEvent.VK_UP) {
+	        setKeyPressed(null);
+	    }
+
+	    if (key == KeyEvent.VK_DOWN) {
+	        setKeyPressed(null);
+	    }
+	    	
+	}
+		
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see contract.IView#printMessage(java.lang.String)
-	 */
-	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
-	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.lang.Runnable#run()
-	 */
-	public void run() {
-		this.viewFrame.setVisible(true);
-	}
-
-	/**
-	 * Sets the controller.
-	 *
-	 * @param controller
-	 *          the new controller
-	 */
-	public void setController(final IController controller) {
-		this.viewFrame.setController(controller);
-	}
 }

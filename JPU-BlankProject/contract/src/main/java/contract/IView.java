@@ -1,17 +1,16 @@
 package contract;
 
+import view.IBoard;
+
 /**
- * The Interface IView.
+ * The IView interface to View.
  *
- * @author Jean-Aymeric Diet
+ * @author Gabriel RICARD
  */
 public interface IView {
+	
 
-	/**
-	 * Prints the message.
-	 *
-	 * @param message
-	 *          the message
-	 */
-	void printMessage(final String message);
+	
+	
+
 }
