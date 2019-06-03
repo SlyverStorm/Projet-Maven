@@ -10,7 +10,6 @@ import java.io.IOException;
 
 /**
  * The Class DAOMap
- *
  * @author Thibaut MAITREPIERRE
  */
 
@@ -45,7 +44,12 @@ class DAOMap {
 		}
 	}
 
-	
+	/**
+	 * Generates a text file for the map.
+	 * @param map
+	 * @param fileName
+	 * @throws IOException
+	 */
 	public static void mapTextFile(final String map, final String fileName) throws IOException {
 		FileWriter writer = new FileWriter(fileName);
 		BufferedWriter bw = new BufferedWriter(writer);
