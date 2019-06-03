@@ -57,6 +57,8 @@ public class EnemyUpDown extends Enemy {
 			return false;
 		case PLAYER:
 			return false;
+		case BALL:
+			return false;
 		default:
 			return false;
 		}
@@ -84,6 +86,8 @@ public class EnemyUpDown extends Enemy {
 		case EXIT:
 			return false;
 		case PLAYER:
+			return false;
+		case BALL:
 			return false;
 		default:
 			return false;

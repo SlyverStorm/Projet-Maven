@@ -26,7 +26,7 @@ import model.mobileElement.gravityElement.RockBall;
  *
  * @author Gabriel RICARD AND Thibaut MAITREPIERRE
  */
-public final class BoulderDashModel extends Observable implements IModel, Observer {
+public final class BoulderDashModel extends Observable implements IModel {
 
 	/**
 	 * The double entry Element map.
@@ -507,24 +507,35 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
 		this.setPlayerX(getPlayerX()-1);
 		this.assignNewMap();
-	} 
-	
-	
-	
-	
-
-
-	@Override
-	public Observable getObservable() {
-		// TODO Auto-generated method stub
-		return null;
 	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
+	
+	public void enemyMovePerformer() throws IOException {
 		
+		for(int i = 1; i <= this.getMaxMapHeight(); i++) {
+			for(int j = 1; j <= this.getMaxMapWidth(); j++) {
+				if( this.getElementFromMap(j, i).getState() == State.ENEMY) {
+					controllerMap[j][i].moveLeftRight();
+					controllerMap[j][i].moveUpDown();
+					this.controllerMap = controllerMap[j][i].getMap();
+					this.assignNewMap();
+				}
+			}
+		}
 	}
+	
+	
+	public void gravityElementMovePerformer() throws IOException {
+		for(int i = 1; i <= this.getMaxMapHeight(); i++) {
+			for(int j = 1; j <= this.getMaxMapWidth(); j++) {
+				if( this.getElementFromMap(j, i).getState() == State.LOOTABLE || this.getElementFromMap(j, i).getState() == State.BALL) {
+					controllerMap[j][i].gravityMove();
+					this.controllerMap = controllerMap[j][i].getMap();
+					this.assignNewMap();
+				}
+			}
+		}
+	}
+	
 
 	@Override
 	public contract.HelloWorld getHelloWorld() {
@@ -538,10 +549,14 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		
 	}
 
+	@Override
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return this;
+	} 
+	
 
-	
-	
-	
+
 	
 	
 	

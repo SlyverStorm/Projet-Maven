@@ -81,5 +81,22 @@ public class Score extends Element {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
+	@Override
+	protected void moveUpDown() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void moveLeftRight() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void gravityMove() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
 }

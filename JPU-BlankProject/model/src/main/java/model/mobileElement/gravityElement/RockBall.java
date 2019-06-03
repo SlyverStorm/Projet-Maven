@@ -18,7 +18,7 @@ public class RockBall extends GravityElement {
 	/**
 	 * The State preset for a RockBall Element.
 	 */
-	private static State state = State.UNBREAKABLE;
+	private static State state = State.BALL;
 	
 
 
@@ -33,6 +33,54 @@ public class RockBall extends GravityElement {
 	public RockBall(final int x, final int y, Sprite sprite) throws IOException {
 		
 		super(x,y,sprite,state);
+		
+	}
+
+
+
+	@Override
+	protected void movePlayerUp() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	protected void movePlayerRight() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	protected void movePlayerDown() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	protected void movePlayerLeft() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	protected void moveUpDown() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	protected void moveLeftRight() {
+		// TODO Auto-generated method stub
 		
 	}
 }
