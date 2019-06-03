@@ -99,5 +99,4 @@ public class Score extends Element {
 		// TODO Auto-generated method stub
 		
 	}
-	
 }
