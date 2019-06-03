@@ -1,20 +1,40 @@
 package model.mobileElement.enemy;
 
-public class EnemyLeftRight implements MovingEnemy {
+import java.io.IOException;
+
+import model.Sprite;
+
+public class EnemyLeftRight extends Enemy {
 
 	
 	/**
 	 * The EnemyLeftRight constructor.
 	 */
-	public EnemyLeftRight() {
-		
+	public EnemyLeftRight(final int x, final int y, Sprite sprite) {
+		super(x,y,sprite);
 	}
 	
 	/**
 	 * Based on the two others methods, it will make the enemy go up or down.
+	 * @throws IOException 
 	 */
-	public void moveLeftRight() {
+	public void moveLeftRight() throws IOException {
+		if(this.getDirection() == false) {
+			if(this.isMoveLeftPossible() == true) {
+				this.moveRight();
+			}
+			else
+				this.setDirection(true);
+		}
 		
+		if(this.getDirection() == true) {
+			if(this.isMoveRightPossible() == true) {
+				this.moveRight();
+			}
+			else
+				this.setDirection(false);
+		}
+
 	}
 	
 	/**
@@ -23,7 +43,24 @@ public class EnemyLeftRight implements MovingEnemy {
 	 * @return True if Moveable, False if not.
 	 */
 	public boolean isMoveLeftPossible() {
-		return false;
+		switch(getElementFromMap(this.getX()-1,this.getY()).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return false;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return false;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return false;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 		
 	}
 	
@@ -33,25 +70,24 @@ public class EnemyLeftRight implements MovingEnemy {
 	 * @return True if Moveable, False if not.
 	 */
 	public boolean isMoveRightPossible() {
-		return false;
+		switch(getElementFromMap(this.getX()+1,this.getY()).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return false;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return false;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return false;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 		
-	}
-
-	@Override
-	public void moveUpDown() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean isMoveUpPossible() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isMoveDownPossible() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

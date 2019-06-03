@@ -1,5 +1,7 @@
 package model.mobileElement.enemy;
 
+import java.io.IOException;
+
 import model.Sprite;
 import model.State;
 import model.mobileElement.MobileElement;
@@ -17,11 +19,7 @@ public class Enemy extends MobileElement {
 	 */
 	private boolean direction;
 	
-	/**
-	 * Move set of the enemy.
-	 */
-	private MovingEnemy move = null;
-	
+
 	/**
 	 * State preset of the enemy.
 	 */
@@ -36,23 +34,11 @@ public class Enemy extends MobileElement {
 	 * @param y, ordinate coordinate of the Enemy
 	 * @param move, the move set of the Enemy
 	 */
-	public Enemy(final int x, final int y, Sprite sprite, EnemyUpDown move) {
+	public Enemy(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
-		this.move = move;
+
 	}
 	
-	
-	/**
-	 * The Enemy moving to the left and to the right constructor.
-	 * 
-	 * @param x, abscissa coordinate of the Enemy
-	 * @param y, ordinate coordinate of the Enemy
-	 * @param move, the move set of the Enemy
-	 */
-	public Enemy(final int x, final int y, Sprite sprite, EnemyLeftRight move) {
-		super(x,y,sprite,state);
-		this.move = move;
-	}
 	
 	/**
 	 * Corresponds to the Enemy direction.
@@ -71,32 +57,38 @@ public class Enemy extends MobileElement {
 	public void setDirection(boolean direction) {
 		this.direction = direction;
 	}
-	
-	/**
-	 * Gets the moving capacity of the Enemy.
-	 * 
-	 * @return Moving Enemy Move
-	 */
-	public MovingEnemy getMove() {
-		return move;
+
+
+	@Override
+	protected void movePlayerUp() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void movePlayerRight() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void movePlayerDown() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void movePlayerLeft() throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 	
-	/**
-	 * Sets the moving capacity of the Enemy.
-	 * 
-	 * @param move
-	 */
-	public void setMove(MovingEnemy move) {
-		this.move = move;
-	}
-	
-	/**
-	 * Perform the move set of the Enemy.
-	 */
-	public void MovePerform() {
-		this.move.moveUpDown();
-		this.move.moveLeftRight();
-	}
+
+
+
 	
 	
 }

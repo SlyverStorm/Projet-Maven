@@ -1,41 +1,39 @@
 package model.mobileElement.enemy;
 
-public class EnemyUpDown implements MovingEnemy {
-	
-	
-	private boolean direction = true;
-	
-	/**
-	 * Corresponds to the Enemy direction.
-	 * 
-	 * @return True or False depending on blocks around the enemy, and also the type of enemy.
-	 */
-	public boolean getDirection() {
-		return direction;
-	}
-	
-	/**
-	 * Corresponds to the direction we want to give to the Enemy
-	 * 
-	 * @param direction Up, Down, Right, Left
-	 */
-	public void setDirection(boolean direction) {
-		this.direction = direction;
-	}
+import java.io.IOException;
+
+import model.Sprite;
+
+public class EnemyUpDown extends Enemy {
 	
 
 	/**
 	 * The EnemyUpDown constructor.
 	 */
-	public EnemyUpDown() {
-		
+	public EnemyUpDown(final int x, final int y, Sprite sprite) {
+		super(x,y,sprite);
 	}
 	
 	/**
 	 * Based on the two others methods, it will make the enemy go up or down.
+	 * @throws IOException 
 	 */
-	public void moveUpDown() {
-
+	public void moveUpDown() throws IOException {
+		if(this.getDirection() == false) {
+			if(this.isMoveUpPossible() == true) {
+				this.moveUp();
+			}
+			else
+				this.setDirection(true);
+		}
+		
+		if(this.getDirection() == true) {
+			if(this.isMoveDownPossible() == true) {
+				this.moveDown();
+			}
+			else
+				this.setDirection(false);
+		}
 	}
 	
 	/**
@@ -44,7 +42,25 @@ public class EnemyUpDown implements MovingEnemy {
 	 * @return True if Moveable, False if not.
 	 */
 	public boolean isMoveUpPossible() {
-		return false;
+		switch(getElementFromMap(this.getX(),this.getY()-1).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return false;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return false;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return false;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
+		
 		
 	}
 	
@@ -54,25 +70,27 @@ public class EnemyUpDown implements MovingEnemy {
 	 * @return True if Moveable, False if not.
 	 */
 	public boolean isMoveDownPossible() {
-		return false;
+		switch(getElementFromMap(this.getX(),this.getY()+1).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return false;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return false;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return false;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
+		
 		
 	}
 
-	@Override
-	public void moveLeftRight() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public boolean isMoveLeftPossible() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isMoveRightPossible() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
