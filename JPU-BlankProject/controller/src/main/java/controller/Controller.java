@@ -14,6 +14,10 @@ import contract.IView;
  *
  * @author Antoine Baudusseau
  */
+/**
+ * @author user
+ *
+ */
 public final class Controller implements IController {
 
 	/** The Constant speed. */
@@ -43,7 +47,7 @@ public final class Controller implements IController {
 	public void play() {
 		this.getModel().getControllerMap();
 		this.CountI(model);
-		while (this.getModel().getPlayer().isAlive()) {
+		while (CountW()) {
 			Thread.sleep(speed);
 			switch (this.getStackOrder()) {
 			case Right:
@@ -58,13 +62,9 @@ public final class Controller implements IController {
 			case Down:
 				this.getModel().controllerMap[Px][Py].movePlayerDown();
 				break;
-			case Nop:
-			default:
-				this.getModel().controllerMap[Px][Py].doNothing();
-				break;
 			}
 			this.clearStackOrder();
-			MobileElement(model);
+			Element(model);
 		}
 		
 	}
@@ -74,15 +74,30 @@ public final class Controller implements IController {
 	 *
 	 * @param model the model
 	 */
-	public void MobileElement(final IModel model) {
+	public void Element(final IModel model) {
 		for (int i; i <= this.getModel().maxHeight; i++) {
 			for (int j; j <= this.getModel().maxWidth; j++) {
 				this.getModel().controllerMap[i][j].move.moveUpDown();
-				this.getModel().controllerMap[i][j].move.moveRightLeft();
+				this.getModel().controllerMap[i][j].move.LeftRight();
 				this.getModel().controllerMap[i][j].gravityMove();
 				this.CountC(model);
 				this.ScoreIncrease(NbrDiamondI, NbrDiamondC);
 			}
+		}
+	}
+	
+	
+	/**
+	 * Return false when all the diamond where taken by the player.
+	 * 
+	 * @return
+	 */
+	public boolean CountW() {
+		if (NbrDiamondC == 0) {
+			return false;
+		}
+		else {
+			return true;
 		}
 	}
 	
@@ -94,7 +109,7 @@ public final class Controller implements IController {
 	public void CountI(final IModel model) {
 		for (int i; i <= this.getModel().maxHeight; i++) {
 			for (int j; j <= this.getModel().maxWidth; j++) {
-				if (model.controllerMap[i][j].state.lootable) {
+				if (model.controllerMap[i][j].state.LOOTABLE) {
 					NbrDiamondI ++;
 				}
 			}
@@ -108,7 +123,7 @@ public final class Controller implements IController {
 	 */
 	public void CountC(final IModel model) {
 		NbrDiamondC = 0;
-		if (model.controllerMap[i][j].state.lootable) {
+		if (model.controllerMap[i][j].state.LOOTABLE) {
 			NbrDiamondC ++;
 		}
 	}
