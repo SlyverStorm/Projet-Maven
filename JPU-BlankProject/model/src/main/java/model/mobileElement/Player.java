@@ -1,5 +1,7 @@
 package model.mobileElement;
 
+import java.io.IOException;
+
 import model.Sprite;
 import model.State;
 
@@ -23,14 +25,34 @@ public class Player extends MobileElement {
 	 * @return true if the move is possible or false if the move is not possible
 	 */
 	public boolean isMoveUpPossible() {
-		return false;
+		switch(getElementFromMap(this.getX(),this.getY()+1).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return true;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return true;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return true;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 	}
 	
 	/**
 	 * Move the player Element to the upper Element
+	 * @throws IOException 
 	 */
-	public void movePlayerUp() {
-		
+	public void movePlayerUp() throws IOException {
+		if (isMoveUpPossible()) {
+			this.moveUp();
+		}
 	}
 	
 	/**
@@ -39,14 +61,34 @@ public class Player extends MobileElement {
 	 * @return true if the move is possible or false if the move is not possible
 	 */
 	public boolean isMoveDownPossible() {
-		return false;
+		switch(getElementFromMap(this.getX(),this.getY()-1).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return true;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return true;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return true;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 	}
 	
 	/**
 	 * Move the player Element to the lower Element
+	 * @throws IOException 
 	 */
-	public boolean movePlayerDown() {
-		return false;
+	public void movePlayerDown() throws IOException {
+		if (isMoveDownPossible()) {
+			this.moveDown();
+		}
 	}
 	
 	/**
@@ -55,14 +97,34 @@ public class Player extends MobileElement {
 	 * @return true if the move is possible or false if the move is not possible
 	 */
 	public boolean isMoveLeftPossible() {
-		return false;
+		switch(getElementFromMap(this.getX()-1,this.getY()).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return true;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return true;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return true;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 	}
 	
 	/**
 	 * Move the player Element to the left Element
+	 * @throws IOException 
 	 */
-	public void movePlayerLeft() {
-		
+	public void movePlayerLeft() throws IOException {
+		if (isMoveLeftPossible()) {
+			this.moveLeft();
+		}
 	}
 	
 	/**
@@ -71,14 +133,34 @@ public class Player extends MobileElement {
 	 * @return true if the move is possible or false if the move is not possible
 	 */
 	public boolean isMoveRightPossible() {
-		return false;
+		switch(getElementFromMap(this.getX()+1,this.getY()).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return true;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return true;
+		case ENEMY :
+			return false;
+		case EXIT:
+			return true;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 	}
 	
 	/**
 	 * Move the player Element to the right Element
+	 * @throws IOException 
 	 */
-	public void movePlayerRight() {
-		
+	public void movePlayerRight() throws IOException {
+		if (isMoveRightPossible()) {
+			this.moveRight();
+		}
 	}
 	
 	/**
