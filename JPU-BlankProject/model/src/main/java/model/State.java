@@ -8,6 +8,7 @@ public enum State {
 	BREAKABLE,
 	UNBREAKABLE,
 	LOOTABLE,
+	BALL,
 	EMPTY,
 	EXIT,
 	ENEMY,

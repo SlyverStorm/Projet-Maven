@@ -26,7 +26,7 @@ import model.mobileElement.gravityElement.RockBall;
  *
  * @author Gabriel RICARD AND Thibaut MAITREPIERRE
  */
-public final class BoulderDashModel extends Observable implements IModel, Observer {
+public final class BoulderDashModel extends Observable implements IModel {
 
 	/**
 	 * The double entry Element map.
@@ -507,22 +507,20 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
 		this.setPlayerX(getPlayerX()-1);
 		this.assignNewMap();
-	} 
-	
-	
-	
-	
-
-
-	@Override
-	public Observable getObservable() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+	public void enemyMovePerformer() {
+		for(int i = 1; i <= this.getMaxMapHeight(); i++) {
+			for(int j = 1; j <= this.getMaxMapWidth(); j++) {
+				if( this.getElementFromMap(j, i).getState() == State.ENEMY) {
+					controllerMap[j][i].moveLeftRight();
+					controllerMap[j][i].moveUpDown();
+					
+				}
+			}
+		}
 	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -538,10 +536,14 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		
 	}
 
+	@Override
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return null;
+	} 
+	
 
-	
-	
-	
+
 	
 	
 	
