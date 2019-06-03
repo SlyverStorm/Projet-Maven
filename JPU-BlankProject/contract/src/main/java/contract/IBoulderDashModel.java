@@ -7,5 +7,15 @@ public interface IBoulderDashModel {
 	int getMaxMapWidth();
 
 	int getMaxMapHeight();
+	
+	int getPlayerX();
+	
+	int getPlayerY();
+	
+	void enemyMovePerformer();
+	
+	void gravityElementMovePerformer();
+	
+	
 
 }
