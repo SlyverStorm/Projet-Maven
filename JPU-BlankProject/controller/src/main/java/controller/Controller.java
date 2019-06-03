@@ -116,7 +116,8 @@ public final class Controller implements IController {
 	/**
 	 * Calculation of the player's score.
 	 *
-	 * @param model the model
+	 * @param NbrDiamondI The number of diamond on the map at the beginning of the game
+	 * @param NbrDiamondC The current number of diamond on the map
 	 */
 	public void ScoreIncrease(int NbrDiamondI, int NbrDiamondC) {
 		score = NbrDiamondI - NbrDiamondC;
@@ -199,7 +200,7 @@ public final class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.UserOrder)
 	 */
-	public void orderPerform(final UserOrder UserOrder) throws IOException {
+	public void orderPerform(final UserOrder UserOrder) {
 		this.setStackOrder(UserOrder);
 	}
 }
