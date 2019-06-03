@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Observable;
 import java.util.Observer;
 
+import contract.IBoulderDashModel;
 import contract.IModel;
 import model.Sprite;
 import model.blocks.DestroyableBlock;
@@ -25,7 +26,7 @@ import model.mobileElement.gravityElement.RockBall;
  *
  * @author Gabriel RICARD AND Thibaut MAITREPIERRE
  */
-public final class BoulderDashModel extends Observable implements IModel {
+public final class BoulderDashModel extends Observable implements IBoulderDashModel {
 
 	/**
 	 * The double entry Element map.

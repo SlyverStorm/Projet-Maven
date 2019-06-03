@@ -1,71 +1,97 @@
 package view;
 
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.SwingUtilities;
 
 import contract.ControllerOrder1;
-import contract.IController1;
-import contract.IBoulderDashModel1;
+import contract.IBoulderDashModel;
+import contract.ISquare;
 import contract.IView;
-import contract.ControllerOrder1;
+
+
 
 /**
  * The View Class, interface between the user and the program.
  *
  * @author Gabriel RICARD
  */
-public final class View implements IView, KeyListener {
+public final class View implements IView, KeyListener, Runnable {
 
 	/** The frame. */
-	private IBoard frame;
 	
-	/** The model known by the View */
-	private IBoulderDashModel1 model;
+	/**
+	 * Map known by the view
+	 */
+	public ISquare[][] viewMap;
 	
 	/**
 	 * KeyPressed UserOrder
 	 */
 	private ControllerOrder1 keyPressed = null;
+	
+	/**
+	 * Frame height
+	 */
+	private int frameHeight;
+	
+	/**
+	 * Frame width
+	 */
+	private int frameWidth;
 
 	/**
-	 * get the frame in the View
-	 * 
-	 * @return the view frame
+	 * The close View;
 	 */
-	public IBoard getFrame() {
-		return frame;
-	}
+	private Rectangle closeView;
+
 	
 	/**
-	 * Set a frame to the View
+	 * View constructor
 	 * 
-	 * @param frame , frame to set
-	 * 
+	 * @param model
 	 */
-	public void setFrame(IBoard frame) {
-		this.frame = frame;
+	public View(IBoulderDashModel model) {
+		viewMap = model.getControllerMap();
+        SwingUtilities.invokeLater(this);
+        this.setFrameWidth(model.getMaxMapWidth());
+        this.setFrameHeight(model.getMaxMapHeight());
 	}
 	
+    /*
+     * (non-Javadoc)
+     * @see java.lang.Runnable#run()
+     */
+    @Override
+    public final void run() {
+        final BoardFrame boardFrame = new BoardFrame("BoulderDash");
+        boardFrame.setDimension(new Dimension(this.getFrameWidth(), this.getFrameHeight()));
+        boardFrame.setDisplayFrame(this.closeView);
+        boardFrame.setSize(this.closeView.width * 16, this.closeView.height * 16);
+        boardFrame.setHeightLooped(true);
+        boardFrame.addKeyListener(this);
+        boardFrame.setFocusable(true);
+        boardFrame.setFocusTraversalKeysEnabled(false);
+
+        for(int y = 1; y <= this.getFrameHeight(); y++) {
+        	for(int x = 1; x <= this.getFrameWidth(); x++) {
+        		boardFrame.addSquare(this.viewMap[x][y], x, y);
+        		
+        		
+        	}
+        	
+        }
+
+        boardFrame.setVisible(true);
+    }
 	
-	/**
-	 * Model known by the View
-	 * 
-	 * @return the model
-	 */
-	public IBoulderDashModel1 getModel() {
-		return model;
-	}
 	
-	/**
-	 * Set the model in the View
-	 * 
-	 * @param model , model to set
-	 */
-	public void setModel(IBoulderDashModel1 model) {
-		this.model = model;
-	}
+
+	
+
 	
 	
 	/**
@@ -146,6 +172,22 @@ public final class View implements IView, KeyListener {
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int getFrameHeight() {
+		return frameHeight;
+	}
+
+	public void setFrameHeight(int frameHeight) {
+		this.frameHeight = frameHeight;
+	}
+
+	public int getFrameWidth() {
+		return frameWidth;
+	}
+
+	public void setFrameWidth(int frameWidth) {
+		this.frameWidth = frameWidth;
 	}
 
 

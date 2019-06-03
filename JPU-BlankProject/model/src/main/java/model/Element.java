@@ -4,6 +4,8 @@ import java.awt.Image;
 import java.io.IOException;
 import java.util.Observable;
 
+import contract.ISquare;
+
 /**
  * <h1>The Element Class.</h1>
  *
