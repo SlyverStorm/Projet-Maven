@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.Observable;
 import java.util.Observer;
 
+import contract.HelloWorld;
 import contract.IModel;
-import entity.HelloWorld;
 import model.Sprite;
 import model.blocks.DestroyableBlock;
 import model.blocks.EmptyBlock;
@@ -537,8 +537,15 @@ public final class BoulderDashModel extends Observable implements IModel {
 	}
 	
 
+
 	@Override
-	public contract.HelloWorld getHelloWorld() {
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return this;
+	}
+
+	@Override
+	public HelloWorld getHelloWorld() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -547,12 +554,6 @@ public final class BoulderDashModel extends Observable implements IModel {
 	public void loadHelloWorld(String code) {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public Observable getObservable() {
-		// TODO Auto-generated method stub
-		return this;
 	} 
 	
 
