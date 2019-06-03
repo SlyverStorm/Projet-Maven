@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import model.Sprite;
+import model.State;
+
 public class EnemyTest {
-	Enemy enemyUpDown;
-	Enemy enemyLeftRight;
-	EnemyUpDown move1;
-	EnemyLeftRight move2;
+	Enemy enemyTest;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -24,9 +24,7 @@ public class EnemyTest {
 
 	@Before
 	public void setUp() throws Exception {
-		enemyUpDown = new Enemy(1,1,move1);
-		enemyLeftRight = new Enemy(1,2,move2);
-		
+		enemyTest = new Enemy(1,1,null);
 	}
 
 	@After
@@ -34,13 +32,15 @@ public class EnemyTest {
 	}
 
 	@Test
-	public void testEnemyIntIntEnemyUpDown() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testEnemyIntIntEnemyLeftRight() {
-		fail("Not yet implemented");
+	public void testEnemy() {
+		int expectedx = 1;
+		int expectedy = 1;
+		Sprite expectedsprite = null;
+		State expectedstate = State.ENEMY;
+		assertEquals(expectedx, enemyTest.getX());
+		assertEquals(expectedy, enemyTest.getY());
+		assertEquals(expectedsprite, enemyTest.getSprite());
+		assertEquals(expectedstate, enemyTest.getState());
 	}
 
 	@Test
@@ -50,21 +50,6 @@ public class EnemyTest {
 
 	@Test
 	public void testSetDirection() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetMove() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetMove() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testMovePerform() {
 		fail("Not yet implemented");
 	}
 
