@@ -38,7 +38,7 @@ public abstract class MobileElement extends Element {
 	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
-	protected void MoveUp() throws IOException {
+	protected void moveUp() throws IOException {
 		Sprite emptyBlockSprite = new Sprite('-',"EmptyBlockImage");
 		EmptyBlock empty = new EmptyBlock(this.getX(),this.getY(),emptyBlockSprite);
 		setElementToMap(getElementFromMap(this.getX(),this.getY()),this.getX(), this.getY()+1);
@@ -52,7 +52,7 @@ public abstract class MobileElement extends Element {
 	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
-	protected void MoveDown(MobileElement movingElement) throws IOException {
+	protected void moveDown() throws IOException {
 		Sprite emptyBlockSprite = new Sprite('-',"EmptyBlockImage");
 		EmptyBlock empty = new EmptyBlock(this.getX(),this.getY(),emptyBlockSprite);
 		setElementToMap(getElementFromMap(this.getX(),this.getY()),this.getX(), this.getY()-1);
@@ -66,7 +66,7 @@ public abstract class MobileElement extends Element {
 	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
-	protected void MoveRight(MobileElement movingElement) throws IOException {
+	protected void moveRight() throws IOException {
 		Sprite emptyBlockSprite = new Sprite('-',"EmptyBlockImage");
 		EmptyBlock empty = new EmptyBlock(this.getX(),this.getY(),emptyBlockSprite);
 		setElementToMap(getElementFromMap(this.getX(),this.getY()),this.getX()+1, this.getY());
@@ -81,7 +81,7 @@ public abstract class MobileElement extends Element {
 	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
-	protected void MoveLeft(MobileElement movingElement) throws IOException {
+	protected void moveLeft() throws IOException {
 		Sprite emptyBlockSprite = new Sprite('-',"EmptyBlockImage");
 		EmptyBlock empty = new EmptyBlock(this.getX(),this.getY(),emptyBlockSprite);
 		setElementToMap(getElementFromMap(this.getX(),this.getY()),this.getX()-1, this.getY());

@@ -1,5 +1,7 @@
 package model.mobileElement.gravityElement;
 
+import java.io.IOException;
+
 import model.Sprite;
 import model.State;
 import model.mobileElement.MobileElement;
@@ -31,14 +33,34 @@ public abstract class GravityElement extends MobileElement {
 	 * @return true if moving down is possible or false if it's not possible
 	 */
 	public boolean isMoveDownPossible() {
-		return false;
+		switch(getElementFromMap(this.getX(),this.getY()-1).getState()) {
+		case EMPTY :
+			return true;
+		case BREAKABLE :
+			return false;
+		case UNBREAKABLE :
+			return false;
+		case LOOTABLE :
+			return false;
+		case ENEMY :
+			return false;
+		case EXIT :
+			return false;
+		case PLAYER:
+			return false;
+		default:
+			return false;
+		}
 	}
 	
 	/**
 	 * Move the GravityElement downward if it's possible.
+	 * @throws IOException 
 	 */
-	public void gravityMove() {
-		
+	public void gravityMove() throws IOException {
+		if(isMoveDownPossible()) {
+			this.moveDown();
+		}
 	}
 
 }
