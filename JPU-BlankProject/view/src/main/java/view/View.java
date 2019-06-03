@@ -24,33 +24,75 @@ public final class View implements IView, KeyListener {
 	/** The model known by the View */
 	private IBoulderDashModel1 model;
 	
+	/**
+	 * KeyPressed UserOrder
+	 */
 	private ControllerOrder1 keyPressed = null;
 
+	/**
+	 * get the frame in the View
+	 * 
+	 * @return the view frame
+	 */
 	public IBoard getFrame() {
 		return frame;
 	}
-
+	
+	/**
+	 * Set a frame to the View
+	 * 
+	 * @param frame , frame to set
+	 * 
+	 */
 	public void setFrame(IBoard frame) {
 		this.frame = frame;
 	}
-
+	
+	
+	/**
+	 * Model known by the View
+	 * 
+	 * @return the model
+	 */
 	public IBoulderDashModel1 getModel() {
 		return model;
 	}
-
+	
+	/**
+	 * Set the model in the View
+	 * 
+	 * @param model , model to set
+	 */
 	public void setModel(IBoulderDashModel1 model) {
 		this.model = model;
 	}
 	
+	
+	/**
+	 * get the Key order
+	 * 
+	 * @return key pressed
+	 */
 	public ControllerOrder1 getKeyPressed() {
 		return keyPressed;
 	}
 
+	
+	/**
+	 * set a keyPressed
+	 * 
+	 * @param keyPressed
+	 */
 	public void setKeyPressed(ControllerOrder1 keyPressed) {
 		this.keyPressed = keyPressed;
 	}
 	
 	
+	/**
+	 * KeyListener when a key is pressed
+	 * 
+	 * @param e , KeyEvent 
+	 */
 	public void keyPressed(KeyEvent e) {
 
 	    int key = e.getKeyCode();
@@ -73,7 +115,11 @@ public final class View implements IView, KeyListener {
 	    	
 	}
 
-
+	/**
+	 * KeyListener when a key is release
+	 * 
+	 * @param e , KeyEvent
+	 */
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
