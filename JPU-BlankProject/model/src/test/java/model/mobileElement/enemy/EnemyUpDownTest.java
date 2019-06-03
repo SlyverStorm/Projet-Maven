@@ -23,6 +23,7 @@ public class EnemyUpDownTest {
 
 	@Before
 	public void setUp() throws Exception {
+		enemyUpDownTest = new EnemyUpDown(1,1,null);
 	}
 
 	@After
