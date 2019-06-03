@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Image;
+import java.util.Observable;
 
 /**
  * <h1>The Element Class.</h1>
@@ -8,7 +9,7 @@ import java.awt.Image;
  * @author Thibaut MAITREPIERRE and Gabriel RICARD
  * @version 0.1
  */
-public abstract class Element implements ISquare {
+public abstract class Element extends Observable implements ISquare {
 	
 	/**
 	 * Initialization
@@ -36,6 +37,8 @@ public abstract class Element implements ISquare {
 	 * Special State of the Element.
 	 */
 	private State state;
+	
+	private Element[][] map;
 	
 	
 	/**
@@ -129,5 +132,35 @@ public abstract class Element implements ISquare {
 	public void setState(State state) {
 		this.state = state;
 	}
+	
+	public Element[][] getMap() {
+		return this.map;
+	}
+	
+	public void setMap(Element[][] map) {
+		this.map = map;
+	}
+	
+	/**
+	 * Get an element from the double entry Element table.
+	 * 
+	 * @param x , abscissa of the element
+	 * @param y , ordinate of the element
+	 * @return the Element you're looking for
+	 */
+	public Element getElementFromMap(final int x, final int y) {
+		return map[x][y];
+	}
+	/**
+	 * Set an Element on the map.
+	 * 
+	 * @param element , element to set
+	 * @param x , abscissa coordinate of the element to set
+	 * @param y , ordinate coordinate of the element to set
+	 */
+	public void setElementToMap(Element element, final int x, final int y) {
+		map[x][y] = element;
+	}
+	
 
 }

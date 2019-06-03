@@ -7,5 +7,6 @@ public interface ISquare {
 	int getX();
 	int getY();
 	Image getImage();
+	State getState();
 
 }

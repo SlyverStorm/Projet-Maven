@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Observable;
+import java.util.Observer;
 
 import contract.IModel;
 import entity.HelloWorld;
@@ -25,12 +26,12 @@ import model.mobileElement.gravityElement.RockBall;
  *
  * @author Gabriel RICARD
  */
-public final class BoulderDashModel extends Observable implements IModel {
+public final class BoulderDashModel extends Observable implements IModel, Observer {
 
 	/**
 	 * The double entry Element map.
 	 */
-	private Element[][] controllerMap;
+	public Element[][] controllerMap;
 	
 	/**
 	 * The player abscissa coordinate.
@@ -51,6 +52,11 @@ public final class BoulderDashModel extends Observable implements IModel {
 	 * The exit ordinate coordinate.
 	 */
 	private int exitY;
+	
+	
+	private int maxMapHeight;
+	
+	private int maxMapWidth;
 	
 	
 	
@@ -166,6 +172,70 @@ public final class BoulderDashModel extends Observable implements IModel {
 		this.exitY = exitY;
 	}
 	
+	public int getMaxMapWidth() {
+		return maxMapWidth;
+	}
+
+	public void setMaxMapWidth(int maxMapWidth) {
+		this.maxMapWidth = maxMapWidth;
+	}
+	
+	public int getMaxMapHeight() {
+		return maxMapHeight;
+	}
+
+	public void setMaxMapHeight(int maxMapHeight) {
+		this.maxMapHeight = maxMapHeight;
+	}
+
+
+	
+	
+	
+	public void switchElementToTheRight(final int x, final int y) throws IOException {
+		controllerMap[x+1][y] = controllerMap[x][y];
+		controllerMap[x+1][y].setX(x+1);
+		Sprite sprite = new Sprite('-',"EmptyBlockImage");
+		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
+	}
+	
+	public void switchElementToTheLeft(final int x, final int y) throws IOException {
+		controllerMap[x-1][y] = controllerMap[x][y];
+		controllerMap[x-1][y].setX(x-1);
+		Sprite sprite = new Sprite('-',"EmptyBlockImage");
+		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
+	}
+	
+	public void switchElementToTheUp(final int x, final int y) throws IOException {
+		controllerMap[x][y+1] = controllerMap[x][y];
+		controllerMap[x][y+1].setY(y+1);
+		Sprite sprite = new Sprite('-',"EmptyBlockImage");
+		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
+	}
+	
+	public void switchElementToTheDown(final int x, final int y) throws IOException {
+		controllerMap[x][y-1] = controllerMap[x][y];
+		controllerMap[x][y-1].setX(y-1);
+		Sprite sprite = new Sprite('-',"EmptyBlockImage");
+		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
+	}
+	
+	public State checkBlockStateRight(final int x, final int y) {
+		return controllerMap[x+1][y].getState();
+	}
+	
+	public State checkBlockStateLeft(final int x, final int y) {
+		return controllerMap[x-1][y].getState();
+	}
+	
+	public State checkBlockStateUp(final int x, final int y) {
+		return controllerMap[x][y+1].getState();
+	}
+	
+	public State checkBlockStateDown(final int x, final int y) {
+		return controllerMap[x][y-1].getState();
+	}
+	
 	
 	/**
 	 * Our model constructor.
@@ -176,9 +246,67 @@ public final class BoulderDashModel extends Observable implements IModel {
 	public BoulderDashModel(final String map) throws IOException {
 		
 		boolean isMapCheckFinished = true;
+		boolean isMapCheckFinishedMax = true;
+		
+		int stringPositionMax = 1;
+		int maxX = 0;
+		int maxY = 0;
+		
 		int stringPosition = 1;
 		int x = 1;
 		int y = 1;
+		
+		while(isMapCheckFinishedMax) {
+			switch(map.charAt(stringPositionMax)) {
+			case ('/') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('@') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('-') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('o') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('D') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('X') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('1') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('2') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case('P') :
+				maxX++;
+				stringPositionMax++;
+				break;
+			case (' ') :
+				maxX = 0;
+				maxY++;
+				stringPositionMax++;
+				break;
+			case ('f') :
+				this.setMaxMapHeight(maxX);
+				this.setMaxMapWidth(maxY);
+				isMapCheckFinishedMax = false;
+				break;
+			}
+		}
+		
 		
 		while(isMapCheckFinished) {
 			
@@ -226,6 +354,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 				EnemyLeftRight moveLR = new EnemyLeftRight();
 				this.controllerMap[x][y] = new Enemy(x,y,enemySprite,moveLR);
 				x++;
+				break;
 			case('P') :
 				this.controllerMap[x][y] = new Player(x,y,playerSprite);
 				x++;
@@ -239,6 +368,21 @@ public final class BoulderDashModel extends Observable implements IModel {
 				break;
 			}
 			stringPosition++;
+		}
+		
+		assignNewMap();
+		
+		
+		
+		
+	}
+	
+	
+	public void assignNewMap() {
+		for(int i1 = 1; i1 < this.getMaxMapHeight() + 1; i1++) {
+			for(int i2 = 1; i2 < this.getMaxMapWidth() +1; i2++) {
+				this.getElementFromMap(i2, i1).setMap(controllerMap);
+			}
 		}
 	}
 
@@ -262,6 +406,12 @@ public final class BoulderDashModel extends Observable implements IModel {
 	public Observable getObservable() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
