@@ -29,8 +29,6 @@ public final class Controller implements IController {
 	/** The number of diamonds on the map at the beginning of the game. */
 	int NbrDiamondI = 0;
 	
-	/** The current number of diamonds on the map. */
-	int NbrDiamondC = 0;
 	
 	/** The view. */
 	private IView view;
@@ -45,71 +43,59 @@ public final class Controller implements IController {
 	 * Launch game process.
 	 */
 	public void play() {
-		this.getModel().getControllerMap();
-		this.CountI(model);
+		this.CountI();
 		while (CountW()) {
-			Thread.sleep(speed);
+			
+			
+			
+			Thread.sleep(this.speed);
+			
+			
+			
+			
 			switch (this.getStackOrder()) {
 			case Right:
-				this.getModel().controllerMap[Px][Py].movePlayerRight();
+				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveRightPerform();
 				break;
 			case Left:
-				this.getModel().controllerMap[Px][Py].movePlayerLeft();
+				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveLeftPerform();
 				break;
 			case Up:
-				this.getModel().controllerMap[Px][Py].movePlayerUp();
+				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveUpPerform();
 				break;
 			case Down:
-				this.getModel().controllerMap[Px][Py].movePlayerDown();
+				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveDownPerform();
 				break;
 			}
+			
+			getModel().enemyMovePerformer();
+			
+			getModel().gravityElementMovePerformer();
+			
+			
+			
 			this.clearStackOrder();
-			Element(model);
+			
+			getView().getFrame().getBoardPanel().repaint;
 		}
+		
+		System.out.println("GAME OVER !!!");
 		
 	}
 		
-	/**
-	 * Make the physics works great again.
-	 *
-	 * @param model the model
-	 */
-	public void Element(final IModel model) {
-		for (int i; i <= this.getModel().maxHeight; i++) {
-			for (int j; j <= this.getModel().maxWidth; j++) {
-				this.getModel().controllerMap[i][j].move.moveUpDown();
-				this.getModel().controllerMap[i][j].move.LeftRight();
-				this.getModel().controllerMap[i][j].gravityMove();
-				this.CountC(model);
-				this.ScoreIncrease(NbrDiamondI, NbrDiamondC);
-			}
-		}
-	}
+
 	
-	
-	/**
-	 * Return false when all the diamond where taken by the player.
-	 * 
-	 * @return
-	 */
-	public boolean CountW() {
-		if (NbrDiamondC == 0) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
+
 	
 	/**
 	 * Count the number of diamonds on the map at the beginning of the game.
 	 *
 	 * @param model the model
 	 */
-	public void CountI(final IModel model) {
-		for (int i; i <= this.getModel().maxHeight; i++) {
-			for (int j; j <= this.getModel().maxWidth; j++) {
-				if (model.controllerMap[i][j].state.LOOTABLE) {
+	public void CountI() {
+		for (int i; i <= this.getModel().maxMapHeight; i++) {
+			for (int j; j <= this.getModel().maxMapWidth; j++) {
+				if (this.getModel().getElementFromMap(j,i).getState == State.LOOTABLE) {
 					NbrDiamondI ++;
 				}
 			}
@@ -121,10 +107,30 @@ public final class Controller implements IController {
 	 *
 	 * @param model the model
 	 */
-	public void CountC(final IModel model) {
-		NbrDiamondC = 0;
-		if (model.controllerMap[i][j].state.LOOTABLE) {
-			NbrDiamondC ++;
+	public int CountC() {
+		int NbrDiamondC = 0;
+		for (int i; i <= this.getModel().maxMapHeight; i++) {
+			for (int j; j <= this.getModel().maxMapWidth; j++) {
+				if (this.getModel().getElementFromMap(j,i).getState == State.LOOTABLE) {
+					NbrDiamondC ++;
+				}
+			}
+		}
+		return NbrDiamondC;
+		
+	}
+	
+	/**
+	 * Return false when all the diamond where taken by the player.
+	 * 
+	 * @return
+	 */
+	public boolean CountW() {
+		if (CountC() == 0) {
+			return false;
+		}
+		else {
+			return true;
 		}
 	}
 	
