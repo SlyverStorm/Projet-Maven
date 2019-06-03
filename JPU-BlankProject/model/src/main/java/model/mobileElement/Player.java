@@ -8,7 +8,7 @@ import model.State;
 /**
  * <h1>The Player Class.</h1>
  *
- * @author Gabriel RICARD
+ * @author Gabriel RICARD AND Thibaut MAITREPIERRE
  * @version 0.1
  */
 public class Player extends MobileElement {
@@ -18,6 +18,17 @@ public class Player extends MobileElement {
 	 * State preset of the player.
 	 */
 	private static State state = State.PLAYER;
+	
+	/**
+	 * The player element constructor.
+	 * 
+	 * @param x , abscissa coordinate of the player
+	 * @param y , ordinate coordinate of the player
+	 * @param sprite , the Player associated sprite
+	 */
+	public Player(final int x, final int y, Sprite sprite) {
+		super(x,y,sprite,state);
+	}
 	
 	/**
 	 * Verify if moving up is possible.
@@ -171,17 +182,6 @@ public class Player extends MobileElement {
 		}
 	}
 	
-	/**
-	 * The player element constructor.
-	 * 
-	 * @param x , abscissa coordinate of the player
-	 * @param y , ordinate coordinate of the player
-	 * @param sprite , the Player associated sprite
-	 */
-	public Player(final int x, final int y, Sprite sprite) {
-		super(x,y,sprite,state);
-	}
-
 	@Override
 	protected void moveUpDown() throws IOException {
 		// TODO Auto-generated method stub

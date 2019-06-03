@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.Observable;
 import java.util.Observer;
 
-import contract.HelloWorld;
 import contract.IModel;
 import model.Sprite;
 import model.blocks.DestroyableBlock;

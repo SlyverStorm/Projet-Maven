@@ -11,7 +11,7 @@ import model.blocks.*;
 /**
  * <h1>The MobileElement Class.</h1>
  *
- * @author Gabriel RICARD
+ * @author Gabriel RICARD AND Thibaut MAITREPIERRE
  * @version 0.1
  */
 public abstract class MobileElement extends Element {
@@ -33,9 +33,7 @@ public abstract class MobileElement extends Element {
 	}
 	
 	/**
-	 * Move the Element to the upper Element (x, y+1) and replace old Element by an Empty Element.
-	 * 
-	 * @param movingElement is the type of Element which is moving
+	 * Move the Element to the upper Element (x, y+1) and replace old Element by an Empty Element. 
 	 * @throws IOException 
 	 */
 	protected void moveUp() throws IOException {
@@ -48,8 +46,6 @@ public abstract class MobileElement extends Element {
 	
 	/**
 	 * Move the Element to the lower Element (x, y-1) and replace old Element by an Empty Element.
-	 * 
-	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
 	protected void moveDown() throws IOException {
@@ -62,8 +58,6 @@ public abstract class MobileElement extends Element {
 	
 	/**
 	 * Move the Element to the upper Element (x, y+1) and replace old Element by an Empty Element.
-	 * 
-	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
 	protected void moveRight() throws IOException {
@@ -77,8 +71,6 @@ public abstract class MobileElement extends Element {
 	
 	/**
 	 * Move the Element to the upper Element (x, y+1) and replace old Element by an Empty Element.
-	 * 
-	 * @param movingElement is the type of Element which is moving
 	 * @throws IOException 
 	 */
 	protected void moveLeft() throws IOException {
