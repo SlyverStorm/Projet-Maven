@@ -9,9 +9,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.Sprite;
+import model.State;
 
-public class PlayerTest {
-	Player player;
+public class MobileElementTest {
+	MobileElement mobileElementTest;
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -22,7 +24,7 @@ public class PlayerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		player = new Player(1,1,null);
+		mobileElementTest = new Player(1,1,null);
 	}
 
 	@After
@@ -30,46 +32,29 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testMovePlayerUp() {
-	}
-
-	@Test
-	public void testMovePlayerRight() {
-	}
-
-	@Test
-	public void testMovePlayerDown() {
-	}
-
-	@Test
-	public void testMovePlayerLeft() {
-	}
-
-	@Test
-	public void testPlayer() {
+	public void testMobileElement() {
 		int expectedx = 1;
 		int expectedy = 1;
 		Sprite expectedsprite = null;
-		assertEquals(expectedx, player.getX());
-		assertEquals(expectedy, player.getY());
-		assertEquals(expectedsprite, player.getSprite());
-		
+		assertEquals(expectedx, mobileElementTest.getX());
+		assertEquals(expectedy, mobileElementTest.getY());
+		assertEquals(expectedsprite, mobileElementTest.getSprite());
 	}
 
 	@Test
-	public void testIsMoveUpPossible() {
+	public void testMoveUp() {
 	}
 
 	@Test
-	public void testIsMoveDownPossible() {
+	public void testMoveDown() {
 	}
 
 	@Test
-	public void testIsMoveLeftPossible() {
+	public void testMoveRight() {
 	}
 
 	@Test
-	public void testIsMoveRightPossible() {
+	public void testMoveLeft() {
 	}
 
 }
