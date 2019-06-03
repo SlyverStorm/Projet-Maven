@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.Image;
+import java.io.IOException;
 import java.util.Observable;
 
 /**
@@ -161,6 +162,14 @@ public abstract class Element extends Observable implements ISquare {
 	public void setElementToMap(Element element, final int x, final int y) {
 		map[x][y] = element;
 	}
+
+	protected abstract void movePlayerUp() throws IOException;
+
+	protected abstract void movePlayerRight() throws IOException;
+
+	protected abstract void movePlayerDown() throws IOException;
+
+	protected abstract void movePlayerLeft() throws IOException;
 	
 
 }
