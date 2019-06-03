@@ -423,6 +423,8 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 				break;
 			case('P') :
 				this.controllerMap[x][y] = new Player(x,y,playerSprite);
+				this.setPlayerX(x);
+				this.setPlayerY(y);
 				x++;
 				break;
 			case(' ') :
@@ -450,22 +452,64 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 			}
 		}
 	}
-
+	
+	
+	
+	
+	
+	// Move methods
 	
 	/**
-	 * Pour plus tard.
+	 * PlayerMoveUpPerform method
+	 * 
+	 * @throws IOException
 	 */
-	@Override
-	public HelloWorld getHelloWorld() {
-		// TODO Auto-generated method stub
-		return null;
+	public void playerMoveUpPerform() throws IOException {
+		controllerMap[getPlayerX()][getPlayerY()].movePlayerUp();
+		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
+		this.setPlayerY(getPlayerY()-1);
+		this.assignNewMap();
 	}
+	
+	/**
+	 * PlayerMoveDownPerform method
+	 * 
+	 * @throws IOException
+	 */
+	public void playerMoveDownPerform() throws IOException {
+		controllerMap[getPlayerX()][getPlayerY()].movePlayerDown();
+		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
+		this.setPlayerY(getPlayerY()+1);
+		this.assignNewMap();
+	}
+	
+	
+	/**
+	 * PlayerMoveRightPerform method
+	 * 
+	 * @throws IOException
+	 */
+	public void playerMoveRightPerform() throws IOException {
+		controllerMap[getPlayerX()][getPlayerY()].movePlayerRight();
+		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
+		this.setPlayerX(getPlayerX()+1);
+		this.assignNewMap();
+	}
+	
+	
+	/**
+	 * PlayerMoveLeftPerform method
+	 * 
+	 * @throws IOException
+	 */
+	public void playerMoveLeftPerform() throws IOException {
+		controllerMap[getPlayerX()][getPlayerY()].movePlayerLeft();
+		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
+		this.setPlayerX(getPlayerX()-1);
+		this.assignNewMap();
+	} 
+	
 
-	@Override
-	public void loadHelloWorld(String code) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public Observable getObservable() {
@@ -475,6 +519,18 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public contract.HelloWorld getHelloWorld() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void loadHelloWorld(String code) {
 		// TODO Auto-generated method stub
 		
 	}
