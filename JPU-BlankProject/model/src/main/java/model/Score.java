@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 
 /**
  * <h1>The Score element class.</h1>
@@ -55,6 +56,48 @@ public class Score extends Element {
 	 */
 	public Score(final int x, final int y) {
 		super(x,y,sprite,state);
+	}
+
+	@Override
+	protected void movePlayerUp() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void movePlayerRight() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void movePlayerDown() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void movePlayerLeft() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void moveUpDown() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void moveLeftRight() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void gravityMove() throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

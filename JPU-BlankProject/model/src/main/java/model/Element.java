@@ -171,9 +171,11 @@ public abstract class Element extends Observable implements ISquare {
 
 	protected abstract void movePlayerLeft() throws IOException;
 
-	protected abstract void moveUpDown();
+	protected abstract void moveUpDown() throws IOException ;
 
-	protected abstract void moveLeftRight();
+	protected abstract void moveLeftRight()throws IOException ;
+
+	protected abstract void gravityMove() throws IOException;
 	
 
 }

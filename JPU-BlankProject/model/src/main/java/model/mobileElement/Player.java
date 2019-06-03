@@ -40,6 +40,8 @@ public class Player extends MobileElement {
 			return true;
 		case PLAYER:
 			return false;
+		case BALL:
+			return false;
 		default:
 			return false;
 		}
@@ -75,6 +77,8 @@ public class Player extends MobileElement {
 		case EXIT:
 			return true;
 		case PLAYER:
+			return false;
+		case BALL:
 			return false;
 		default:
 			return false;
@@ -112,6 +116,8 @@ public class Player extends MobileElement {
 			return true;
 		case PLAYER:
 			return false;
+		case BALL:
+			return false;
 		default:
 			return false;
 		}
@@ -148,6 +154,8 @@ public class Player extends MobileElement {
 			return true;
 		case PLAYER:
 			return false;
+		case BALL:
+			return false;
 		default:
 			return false;
 		}
@@ -172,6 +180,24 @@ public class Player extends MobileElement {
 	 */
 	public Player(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);
+	}
+
+	@Override
+	protected void moveUpDown() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void moveLeftRight() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void gravityMove() throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

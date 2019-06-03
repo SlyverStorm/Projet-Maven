@@ -507,22 +507,35 @@ public final class BoulderDashModel extends Observable implements IModel {
 		this.controllerMap = controllerMap[getPlayerX()][getPlayerY()].getMap();
 		this.setPlayerX(getPlayerX()-1);
 		this.assignNewMap();
+	}
+	
+	public void enemyMovePerformer() throws IOException {
 		
-		
-	public void enemyMovePerformer() {
 		for(int i = 1; i <= this.getMaxMapHeight(); i++) {
 			for(int j = 1; j <= this.getMaxMapWidth(); j++) {
 				if( this.getElementFromMap(j, i).getState() == State.ENEMY) {
 					controllerMap[j][i].moveLeftRight();
 					controllerMap[j][i].moveUpDown();
-					
+					this.controllerMap = controllerMap[j][i].getMap();
+					this.assignNewMap();
 				}
 			}
 		}
 	}
-		
-		
+	
+	
+	public void gravityElementMovePerformer() throws IOException {
+		for(int i = 1; i <= this.getMaxMapHeight(); i++) {
+			for(int j = 1; j <= this.getMaxMapWidth(); j++) {
+				if( this.getElementFromMap(j, i).getState() == State.LOOTABLE || this.getElementFromMap(j, i).getState() == State.BALL) {
+					controllerMap[j][i].gravityMove();
+					this.controllerMap = controllerMap[j][i].getMap();
+					this.assignNewMap();
+				}
+			}
+		}
 	}
+	
 
 	@Override
 	public contract.HelloWorld getHelloWorld() {
@@ -539,7 +552,7 @@ public final class BoulderDashModel extends Observable implements IModel {
 	@Override
 	public Observable getObservable() {
 		// TODO Auto-generated method stub
-		return null;
+		return this;
 	} 
 	
 

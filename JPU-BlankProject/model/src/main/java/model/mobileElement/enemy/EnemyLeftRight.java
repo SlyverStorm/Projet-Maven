@@ -58,6 +58,8 @@ public class EnemyLeftRight extends Enemy {
 			return false;
 		case PLAYER:
 			return false;
+		case BALL:
+			return false;
 		default:
 			return false;
 		}
@@ -84,6 +86,8 @@ public class EnemyLeftRight extends Enemy {
 		case EXIT:
 			return false;
 		case PLAYER:
+			return false;
+		case BALL:
 			return false;
 		default:
 			return false;
