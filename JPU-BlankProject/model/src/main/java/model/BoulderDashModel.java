@@ -169,7 +169,6 @@ public final class BoulderDashModel extends Observable implements IBoulderDashMo
 	/**
 	 * Set the exit ordinate coordinate.
 	 * 
-	 * @param exitX , ordinate coordinate to set
 	 */
 	public void setExitY(int exitY) {
 		this.exitY = exitY;

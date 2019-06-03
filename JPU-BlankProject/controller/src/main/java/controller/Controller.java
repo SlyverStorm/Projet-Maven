@@ -76,7 +76,6 @@ public final class Controller implements IController {
 			
 			this.clearStackOrder();
 			
-			getView().getFrame().getBoardPanel().repaint;
 		}
 		
 		System.out.println("GAME OVER !!!");
@@ -90,7 +89,6 @@ public final class Controller implements IController {
 	/**
 	 * Count the number of diamonds on the map at the beginning of the game.
 	 *
-	 * @param model the model
 	 */
 	public void CountI() {
 		for (int i; i <= this.getModel().maxMapHeight; i++) {
@@ -105,7 +103,6 @@ public final class Controller implements IController {
 	/**
 	 * Count the current number of diamonds on the map.
 	 *
-	 * @param model the model
 	 */
 	public int CountC() {
 		int NbrDiamondC = 0;

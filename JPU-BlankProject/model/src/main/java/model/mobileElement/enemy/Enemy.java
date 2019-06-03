@@ -32,7 +32,6 @@ public class Enemy extends MobileElement {
 	 * 
 	 * @param x, abscissa coordinate of the Enemy
 	 * @param y, ordinate coordinate of the Enemy
-	 * @param move, the move set of the Enemy
 	 */
 	public Enemy(final int x, final int y, Sprite sprite) {
 		super(x,y,sprite,state);

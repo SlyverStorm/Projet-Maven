@@ -49,7 +49,6 @@ import contract.ISquare;
  * @see Rectangle
  * @see Image
  * @see ISquare
- * @see IPawn
  * @see Observer
  * @see Observable
  */

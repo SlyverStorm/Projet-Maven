@@ -11,8 +11,6 @@ import java.util.Observer;
  * @version 1.0
  * @see Dimension
  * @see Rectangle
- * @see ISquare
- * @see IPawn
  */
 public interface IBoard {
 

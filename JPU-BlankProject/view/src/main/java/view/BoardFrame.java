@@ -26,7 +26,6 @@ import contract.Ipawn;
  * @see Rectangle
  * @see IBoard
  * @see ISquare
- * @see IPawn
  */
 public class BoardFrame extends JFrame implements IBoard {
 
