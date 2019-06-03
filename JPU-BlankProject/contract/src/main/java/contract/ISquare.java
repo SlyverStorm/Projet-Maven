@@ -1,12 +1,11 @@
-package model;
+package contract;
 
 import java.awt.Image;
 
 public interface ISquare {
 	
-	int getX();
-	int getY();
+
 	Image getImage();
-	State getState();
+
 
 }

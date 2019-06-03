@@ -16,7 +16,8 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import model.ISquare;
+import contract.ISquare;
+
 
 /**
  * <h1>The Class BoardPanel.</h1>
