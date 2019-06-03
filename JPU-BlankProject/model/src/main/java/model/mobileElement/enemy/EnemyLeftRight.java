@@ -47,19 +47,12 @@ public class EnemyLeftRight extends Enemy {
 		case EMPTY :
 			return true;
 		case BREAKABLE :
-			return false;
 		case UNBREAKABLE :
-			return false;
 		case LOOTABLE :
-			return false;
 		case ENEMY :
-			return false;
 		case EXIT:
-			return false;
 		case PLAYER:
-			return false;
 		case BALL:
-			return false;
 		default:
 			return false;
 		}
@@ -76,19 +69,12 @@ public class EnemyLeftRight extends Enemy {
 		case EMPTY :
 			return true;
 		case BREAKABLE :
-			return false;
 		case UNBREAKABLE :
-			return false;
 		case LOOTABLE :
-			return false;
 		case ENEMY :
-			return false;
 		case EXIT:
-			return false;
 		case PLAYER:
-			return false;
 		case BALL:
-			return false;
 		default:
 			return false;
 		}

@@ -17,7 +17,7 @@ public class Enemy extends MobileElement {
 	/**
 	 * Direction of the enemy.
 	 */
-	private boolean direction;
+	private boolean direction = false;
 	
 
 	/**

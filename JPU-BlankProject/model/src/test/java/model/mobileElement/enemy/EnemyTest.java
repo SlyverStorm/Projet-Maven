@@ -45,12 +45,15 @@ public class EnemyTest {
 
 	@Test
 	public void testGetDirection() {
-		fail("Not yet implemented");
+		boolean expecteddirection = false;
+		assertEquals(expecteddirection, enemyTest.getDirection());
 	}
 
 	@Test
 	public void testSetDirection() {
-		fail("Not yet implemented");
+		boolean expecteddirection = true;
+		enemyTest.setDirection(true);
+		assertEquals(expecteddirection, enemyTest.getDirection());
 	}
 
 }
