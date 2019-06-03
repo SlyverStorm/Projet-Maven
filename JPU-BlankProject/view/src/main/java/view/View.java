@@ -4,9 +4,9 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.SwingUtilities;
 
-import contract.ControllerOrder;
-import contract.IController;
-import contract.IModel;
+import contract.ControllerOrder1;
+import contract.IController1;
+import contract.IBoulderDashModel1;
 import contract.IView;
 
 /**
@@ -17,46 +17,25 @@ import contract.IView;
 public final class View implements IView {
 
 	/** The frame. */
-	private final IBoard frame;
+	private IBoard frame;
 	
 	/** The model known by the View */
-	private IBoulderDashModel model;
-	
-	
-	/**
-	 * Get the frame.
-	 * 
-	 * @return frame value
-	 */
+	private IBoulderDashModel1 model;
+
 	public IBoard getFrame() {
-		return null // Default preset
-	}
-	
-	/**
-	 * Frame setting method.
-	 * 
-	 * @param frame value to set
-	 */
-	public void setFrame(IBoard frame) {
-		
-	}
-	
-	/**
-	 * Get the model known by the View.
-	 * 
-	 * @return model value
-	 */
-	public IBoulderDashModel getModel() {
-		return null;
-	}
-	
-	/**
-	 * Model setting method.
-	 * 
-	 * @param model value to set
-	 */
-	public void setModel(IBoulderDashModel model) {
-		
+		return frame;
 	}
 
+	public void setFrame(IBoard frame) {
+		this.frame = frame;
+	}
+
+	public IBoulderDashModel1 getModel() {
+		return model;
+	}
+
+	public void setModel(IBoulderDashModel1 model) {
+		this.model = model;
+	}
+	
 }

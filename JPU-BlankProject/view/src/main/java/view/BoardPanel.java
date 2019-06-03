@@ -16,6 +16,8 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import model.ISquare;
+
 /**
  * <h1>The Class BoardPanel.</h1>
  * <p>
