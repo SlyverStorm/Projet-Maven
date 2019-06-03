@@ -24,7 +24,7 @@ import model.mobileElement.gravityElement.RockBall;
 /**
  * The BoulderDash game Model class.
  *
- * @author Gabriel RICARD
+ * @author Gabriel RICARD AND Thibaut MAITREPIERRE
  */
 public final class BoulderDashModel extends Observable implements IModel, Observer {
 
@@ -53,12 +53,15 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 	 */
 	private int exitY;
 	
-	
+	/**
+	 * The maximum height the map can have.
+	 */
 	private int maxMapHeight;
 	
+	/**
+	 * The maximum width the map can have.
+	 */
 	private int maxMapWidth;
-	
-	
 	
 	
 	/**
@@ -172,18 +175,34 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		this.exitY = exitY;
 	}
 	
+	/**
+	 * Get the maximum map width.
+	 * @return
+	 */
 	public int getMaxMapWidth() {
 		return maxMapWidth;
 	}
 
+	/**
+	 * Set the maximum map width.
+	 * @param maxMapWidth
+	 */
 	public void setMaxMapWidth(int maxMapWidth) {
 		this.maxMapWidth = maxMapWidth;
 	}
 	
+	/**
+	 * Get the maximum map height.
+	 * @return
+	 */
 	public int getMaxMapHeight() {
 		return maxMapHeight;
 	}
 
+	/**
+	 * Set the maximum map height.s
+	 * @param maxMapHeight
+	 */
 	public void setMaxMapHeight(int maxMapHeight) {
 		this.maxMapHeight = maxMapHeight;
 	}
@@ -191,7 +210,12 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 
 	
 	
-	
+	/**
+	 * It will swap a sprite with specific coordinates, to the right (x+1).
+	 * @param x
+	 * @param y
+	 * @throws IOException
+	 */
 	public void switchElementToTheRight(final int x, final int y) throws IOException {
 		controllerMap[x+1][y] = controllerMap[x][y];
 		controllerMap[x+1][y].setX(x+1);
@@ -199,6 +223,12 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
 	}
 	
+	/**
+	 * It will swap a sprite with specific coordinates, to the left (x-1).
+	 * @param x
+	 * @param y
+	 * @throws IOException
+	 */
 	public void switchElementToTheLeft(final int x, final int y) throws IOException {
 		controllerMap[x-1][y] = controllerMap[x][y];
 		controllerMap[x-1][y].setX(x-1);
@@ -206,6 +236,12 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
 	}
 	
+	/**
+	 * It will swap a sprite with specific coordinates up side (y+1).
+	 * @param x
+	 * @param y
+	 * @throws IOException
+	 */
 	public void switchElementToTheUp(final int x, final int y) throws IOException {
 		controllerMap[x][y+1] = controllerMap[x][y];
 		controllerMap[x][y+1].setY(y+1);
@@ -213,6 +249,12 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
 	}
 	
+	/**
+	 * It will swap a sprite with specific coordinates down side (y-1).
+	 * @param x
+	 * @param y
+	 * @throws IOException
+	 */
 	public void switchElementToTheDown(final int x, final int y) throws IOException {
 		controllerMap[x][y-1] = controllerMap[x][y];
 		controllerMap[x][y-1].setX(y-1);
@@ -220,25 +262,49 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		controllerMap[x][y] = new EmptyBlock(x,y,sprite);
 	}
 	
+	/**
+	 * Check the state of the right side block (x+1).
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public State checkBlockStateRight(final int x, final int y) {
 		return controllerMap[x+1][y].getState();
 	}
 	
+	/**
+	 * Check the state of the left side block (x-1).
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public State checkBlockStateLeft(final int x, final int y) {
 		return controllerMap[x-1][y].getState();
 	}
 	
+	/**
+	 * Check the state of the up side block (y+1).
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public State checkBlockStateUp(final int x, final int y) {
 		return controllerMap[x][y+1].getState();
 	}
 	
+	/**
+	 * Check the state of the down side block (y-1).
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public State checkBlockStateDown(final int x, final int y) {
 		return controllerMap[x][y-1].getState();
 	}
 	
 	
 	/**
-	 * Our model constructor.
+	 * BoulderDashModel constructor.
 	 * 
 	 * @param map , our map String to translate in an Element[][]
 	 * @throws IOException 
@@ -371,14 +437,12 @@ public final class BoulderDashModel extends Observable implements IModel, Observ
 		}
 		
 		assignNewMap();
-		
-		
-		
-		
-		
+			
 	}
 	
-	
+	/**
+	 * Travels the whole map by ordinates (i1) and abscissa (i2). In the end, it returns a new map which is set in controllerMap.
+	 */
 	public void assignNewMap() {
 		for(int i1 = 1; i1 < this.getMaxMapHeight() + 1; i1++) {
 			for(int i2 = 1; i2 < this.getMaxMapWidth() +1; i2++) {
