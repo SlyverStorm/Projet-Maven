@@ -1,5 +1,9 @@
 package contract;
 
+import java.io.IOException;
+
+import model.Element;
+
 public interface IBoulderDashModel {
 
 	ISquare[][] getControllerMap();
@@ -12,9 +16,21 @@ public interface IBoulderDashModel {
 	
 	int getPlayerY();
 	
-	void enemyMovePerformer();
+	void enemyMovePerformer() throws IOException;
 	
-	void gravityElementMovePerformer();
+	void gravityElementMovePerformer() throws IOException;
+
+	Object getElementFromMap(int j, int i);
+	
+	Element getElementFromMap();
+	
+	void playerMoveRightPerform() throws IOException;
+	
+	void playerMoveLeftPerform() throws IOException;
+	
+	void playerMoveUpPerform() throws IOException;
+	
+	void playerMoveDownPerform() throws IOException;
 	
 	
 

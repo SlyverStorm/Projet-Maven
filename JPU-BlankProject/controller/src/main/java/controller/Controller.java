@@ -55,16 +55,16 @@ public final class Controller implements IController {
 			
 			switch (this.getStackOrder()) {
 			case Right:
-				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveRightPerform();
+				this.getModel().getElementFromMap(getModel().getPlayerX(), getModel().getPlayerY()).playerMoveRightPerform();
 				break;
 			case Left:
-				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveLeftPerform();
+				this.getModel().getElementFromMap(getModel().getPlayerX(), getModel().getPlayerY()).playerMoveLeftPerform();
 				break;
 			case Up:
-				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveUpPerform();
+				this.getModel().getElementFromMap(getModel().getPlayerX(), getModel().getPlayerY()).playerMoveUpPerform();
 				break;
 			case Down:
-				this.getModel().getElementFromMap(getPlayerX(), getPlayerY()).playerMoveDownPerform();
+				this.getModel().getElementFromMap(getModel().getPlayerX(), getModel().getPlayerY()).playerMoveDownPerform();
 				break;
 			}
 			
@@ -91,9 +91,9 @@ public final class Controller implements IController {
 	 *
 	 */
 	public void CountI() {
-		for (int i; i <= this.getModel().maxMapHeight; i++) {
-			for (int j; j <= this.getModel().maxMapWidth; j++) {
-				if (this.getModel().getElementFromMap(j,i).getState == State.LOOTABLE) {
+		for (int i; i <= this.getModel().getMaxMapHeight(); i++) {
+			for (int j; j <= this.getModel().getMaxMapWidth(); j++) {
+				if (this.getModel().getElementFromMap(j,i).getState() == State.LOOTABLE) {
 					NbrDiamondI ++;
 				}
 			}
@@ -106,9 +106,9 @@ public final class Controller implements IController {
 	 */
 	public int CountC() {
 		int NbrDiamondC = 0;
-		for (int i; i <= this.getModel().maxMapHeight; i++) {
-			for (int j; j <= this.getModel().maxMapWidth; j++) {
-				if (this.getModel().getElementFromMap(j,i).getState == State.LOOTABLE) {
+		for (int i; i <= this.getModel().getMaxMapHeight(); i++) {
+			for (int j; j <= this.getModel().getMaxMapWidth(); j++) {
+				if (this.getModel().getElementFromMap(j,i).getState() == State.LOOTABLE) {
 					NbrDiamondC ++;
 				}
 			}

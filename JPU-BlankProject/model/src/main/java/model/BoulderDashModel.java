@@ -7,7 +7,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import contract.IBoulderDashModel;
-import contract.IModel;
 import model.Sprite;
 import model.blocks.DestroyableBlock;
 import model.blocks.EmptyBlock;
@@ -62,6 +61,8 @@ public final class BoulderDashModel extends Observable implements IBoulderDashMo
 	 * The maximum width the map can have.
 	 */
 	private int maxMapWidth;
+	
+	private String mapString;
 	
 	
 	/**
@@ -314,6 +315,8 @@ public final class BoulderDashModel extends Observable implements IBoulderDashMo
 	 */
 	public BoulderDashModel(final String map) throws IOException {
 		
+		this.setMapString(map);
+		
 		boolean isMapCheckFinished = true;
 		boolean isMapCheckFinishedMax = true;
 		
@@ -541,22 +544,14 @@ public final class BoulderDashModel extends Observable implements IBoulderDashMo
 	
 
 
-	@Override
-	public Observable getObservable() {
-		// TODO Auto-generated method stub
-		return this;
+
+
+	public String getMapString() {
+		return mapString;
 	}
 
-	@Override
-	public HelloWorld getHelloWorld() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void loadHelloWorld(String code) {
-		// TODO Auto-generated method stub
-		
+	public void setMapString(String mapString) {
+		this.mapString = mapString;
 	} 
 	
 
